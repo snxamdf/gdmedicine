@@ -1,0 +1,12 @@
+<!-- 用法：bms.message.readme -->
+<div class="ui positive message" th:if="${globalMessage != null}">
+	<i class="close icon"></i>
+	<div class="header" th:text="${globalMessage}">提示信息.</div>
+</div>
+<script type="text/javascript" th:if="${globalMessage != null}">
+	$(document).ready(function() {
+		$('.message .close').on('click', function() {
+			$(this).closest('.message').fadeOut();
+		});
+	});
+</script>

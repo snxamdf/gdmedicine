@@ -1,0 +1,7 @@
+参数列表：
+id------------------不能为空------String------唯一标识，名称中不能包含“.”
+name----------------可以为空------String------对应controller获取选中值的变量名称，名称中可以包含“.”，为空时值等于id
+val-----------------可以为空------String------选中项目的Id值
+required------------可以为空------Boolean-----是否是必填项
+参数列表例子：
+<div th:include="core/form/web.area" th:with="id='area',val='9fa8b7d3-f178-4249-89f2-4edb38230d85',required='true'"></div>

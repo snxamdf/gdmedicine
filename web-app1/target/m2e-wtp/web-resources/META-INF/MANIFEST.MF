@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-Title: web-app1
+Implementation-Version: 1.0.0
+Implementation-Vendor-Id: com.yhy
+Build-Jdk: 1.7.0_71
+Built-By: 201512080143
+Created-By: Maven Integration for Eclipse
+Main-Class: com.creditease.isy.channel.ChannelApplication
+

@@ -1,0 +1,9 @@
+/*Copyright (c) 2015 YiNongDai.com All rights reserved.*/
+
+.ny_xq .ny_f, .ny_rt li, .xtjsh_lf li a{ background:url(../images/main_icon.png) no-repeat;}
+
+.xtjsh_lf li a:hover, .xtjsh_lf li .select{ display:block; background:url(../images/main_icon.png) no-repeat 15px -544px #4799ff; color:#fff;}
+
+.jr_mail, .jr_tel, .img-scroll .prev, .img-scroll .next, .xq_title a, .xq_bot a, .img-scroll .prev:hover, .img-scroll .next:hover {
+	background: url(../images/main_icon.png) no-repeat;
+}

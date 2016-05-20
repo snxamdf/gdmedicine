@@ -1,0 +1,9 @@
+<nav id="nav">
+	<ul>
+		<li th:class="${nav=='member'?'cur':''}"><a href="#" th:href="@{${#ctl.path+'/mbr/member/toMemberList'}}" class="navIcon1 fixpng">社员</a></li>
+		<li class="cur" th:class="${nav=='shares'?'cur':''}"><a href="#" th:href="@{${#ctl.path+'/shr/voucher/toShrVoucher'}}" class="navIcon2 fixpng">股金</a></li>
+		<li th:class="${nav=='finance'?'cur':''}"><a href="#" th:href="@{${#ctl.path} +'/vchr/voucher/findVchrAndEntryList'}" class="navIcon3 fixpng">财务</a></li>
+		<li th:class="${nav=='financial'?'cur':''}"><a href="#" th:href="@{${#ctl.path} +'/cms/financial/list'}" class="navIcon4 fixpng">金融</a></li>
+		<li th:class="${nav=='market'?'cur':''}"><a href="#" th:href="@{${#ctl.path} +'/cms/market/show'}" class="navIcon5 fixpng">集市</a></li>
+	</ul>
+</nav>

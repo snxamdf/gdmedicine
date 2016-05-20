@@ -1,0 +1,100 @@
+<!-- 用法：bms.area.readme -->
+<span th:include="core/form/bms.combo" th:with="id=${id+'1'},required=${required},loadable='false',url=@{'/sys/area/tree'(search_EQ_parentId=root)}"></span>
+<span th:include="core/form/bms.combo" th:with="id=${id+'2'},required=${required},loadable='false',url=@{'/sys/area/tree'}"></span>
+<span th:include="core/form/bms.combo" th:with="id=${id+'3'},val=${val},required=${required},loadable='false',url=@{'/sys/area/tree'}"></span>
+<input type="hidden" th:id="${id}" th:name="${id}" th:value="${val}" />
+<script type="text/javascript" th:inline="text">
+	/*<![CDATA[*/
+
+	$(document).ready(function() {
+		var val = "[[${val}]]";
+		var initedValue = false;
+		var level1AreaId = "nil";
+		var level2AreaId = "nil";
+		
+		// 一级城市加载数据：
+		$("#[[${id}]]1").trigger("loaded", [{}, !initedValue]); // 触发一级城市的onloaded事件
+
+		// 一级城市数据加载后执行操作：
+		$("#[[${id}]]1").bind("onloaded", function() {
+			if (val != null && typeof (val) != "undefined" && $.trim(val).length > 0) { // 反显一级城市
+				$.ajax({
+					async : false,
+					type : 'get',
+					url : ctl.path + '/sys/area/parentpid?id=' + val,
+					dataType : 'json',
+					success : function(result) {
+						if (result.success) {
+							$(".ui.selection.dropdown.[[${id}]]1").dropdown("set selected", result.data); // 反显后：触发一级城市的onchanged事件
+							if (level1AreaId == "nil") { // 反显的一级城市赋值给level1AreaId：只执行一次，在初始化反显时
+								level1AreaId = result.data;
+							}
+						}
+					}
+				});
+			}
+		});
+		
+		// 一级城市value改变时执行操作：
+		$("#[[${id}]]1").bind("onchanged", function(event, value) {
+			// 二级城市重新加载数据：
+			if (value != null && typeof (value) != "undefined" && $.trim(value).length > 0) {
+				$("#[[${id}]]2").trigger("loaded", [{
+					'search_EQ_parentId' : value
+				}, !initedValue || (value == level1AreaId)]); // 触发二级城市的onloaded事件
+			} else {
+				// 清除二级城市数据
+				$("#[[${id}]]2").trigger("clear");
+			}
+			// 清除三级城市数据
+			$("#[[${id}]]3").trigger("clear");
+		});
+
+		//-------------------------------------------------------------------------------------------
+
+		// 二级城市数据加载后执行操作：
+		$("#[[${id}]]2").bind("onloaded", function() {
+			var value = $("#[[${id}]]1").val();
+			if ((!initedValue || (value == level1AreaId)) && val != null && typeof (val) != "undefined" && $.trim(val).length > 0) { // 反显二级城市
+				$.ajax({
+					async : false,
+					type : 'get',
+					url : ctl.path + '/sys/area/parentid?id=' + val,
+					dataType : 'json',
+					contentType : "application/json; charset=UTF-8",
+					success : function(result) {
+						if (result.success) {
+							$(".ui.selection.dropdown.[[${id}]]2").dropdown("set selected", result.data); // 反显后：触发二级城市的onchanged事件
+							if (level2AreaId == "nil") { // 反显的二级城市赋值给level2AreaId：只执行一次，在初始化反显时
+								level2AreaId = result.data;
+							}
+							initedValue = true;
+						}
+					}
+				});
+			}
+		});
+
+		// 二级城市value改变时执行操作：
+		$("#[[${id}]]2").bind("onchanged", function(event, value) {
+			// 三级城市重新加载数据：
+			if (value != null && typeof (value) != "undefined" && $.trim(value).length > 0) {
+				$("#[[${id}]]3").trigger("loaded", [{
+					'search_EQ_parentId' : value
+				}, !initedValue || (value == level2AreaId)]);  // 触发三级城市的onloaded事件
+			} else {
+				// 清除三级城市数据
+				$("#[[${id}]]3").trigger("clear");
+			}
+		});
+
+		//-------------------------------------------------------------------------------------------
+
+		// 三级城市value改变时执行操作：
+		$("#[[${id}]]3").bind("onchanged", function(event, value) {
+			$("#[[${id}]]").val(value);
+		});
+	});
+
+	/*]]>*/
+</script>

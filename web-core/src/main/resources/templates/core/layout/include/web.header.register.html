@@ -1,0 +1,9 @@
+<header>
+	<div id="header" class="cl">
+		<h1><a href="#" th:href="@{${#ctl.path}+'/'}">爱社员-农民专业合作社信息管理系统</a></h1>
+		<span>
+			<div th:if="false" class="dn"></div> <a href="#" th:href="@{${#ctl.path}+'/login'}" th:class="${active == 'login' ? 'select' : ''}">登录</a>
+			<div th:if="false" class="dn"></div> <a href="#" th:href="@{${#ctl.path}+'/register'}" class="select" th:class="${active == 'register' ? 'select' : ''}">注册</a>
+		</span>
+	</div>
+</header>

@@ -1,0 +1,83 @@
+<!-- 用法：bms.tree.readme -->
+<div class="ui action input">
+	<input type="hidden" th:id="${id}" th:name="${name == null ? id : name}" />
+	<div th:if="false" class="dn"></div>
+	<input type="hidden" th:id="${id + '_id'}" th:name="${id}" th:if="${name != null and id != name ? true : false}" />
+	<div th:if="false" class="dn"></div>
+	<input type="text" placeholder="请选择..." th:id="${id + '_name'}" th:name="${id + '_name'}" disabled="disabled" />
+	<div class="ui small button w70" th:id="${id + '_btn'}">选择</div>
+</div>
+<div class="ui hidden transition">
+	<div th:id="${id + '_dialog'}" title="请选择">
+		<ul th:id="${id + '_tree'}" class="ztree"></ul>
+	</div>
+</div>
+<script type="text/javascript" th:inline="javascript">
+	/*<![CDATA[*/
+	$(document).ready(function() {
+		$(/*[[${'#'+id+'_btn'}]]*/).click(function(){
+			var reset = /*[[${reset}]]*/;
+			$(/*[[${'#'+id+'_dialog'}]]*/).dialog({
+				resizable: false,
+				modal: true,
+				buttons: [{
+					text: "重置",
+					disabled: !reset,
+					click: function() {
+						$(/*[[${'#'+id}]]*/).val("");
+						$(/*[[${'#'+id+'_id'}]]*/).val("");
+						$(/*[[${'#'+id+'_name'}]]*/).val("");
+						$(this).dialog("close");
+					}
+				}, {
+					text: "取消",
+					click: function() {
+						$(this).dialog("close");
+					}
+				}, {
+					text: "确定",
+					click: function() {
+						var treeObj = $.fn.zTree.getZTreeObj(/*[[${id+'_tree'}]]*/);
+						var nodes = treeObj.getSelectedNodes();
+						if (nodes.length == 1) {
+							$(/*[[${'#'+id}]]*/).val(nodes[0].id);
+							$(/*[[${'#'+id+'_id'}]]*/).val(nodes[0].id);
+							$(/*[[${'#'+id+'_name'}]]*/).val(nodes[0].name);
+						}
+						$(this).dialog("close");
+					}
+				}]
+			});
+		});
+		$.ajax({
+			type : "get",
+			dataType : "json",
+			url : /*[[${url}]]*/,
+			data : {
+				v : Math.random()
+			},
+			success : function(data) {
+				var setting = {
+					data : {
+						simpleData : {
+							enable : true,
+							rootPId : "root"
+						}
+					}
+				};
+				$.fn.zTree.init($(/*[[${'#'+id+'_tree'}]]*/), setting, data);
+				var val = /*[[${val}]]*/;
+				if (data.length > 0 && val != null && val.length > 0) {
+					for (var i in data) {
+						if (data[i].id == val) {
+							$(/*[[${'#'+id}]]*/).val(data[i].id);
+							$(/*[[${'#'+id+'_id'}]]*/).val(data[i].id);
+							$(/*[[${'#'+id+'_name'}]]*/).val(data[i].name);
+						}
+					}
+				}
+			}
+		});
+	});
+	/*]]>*/
+</script>

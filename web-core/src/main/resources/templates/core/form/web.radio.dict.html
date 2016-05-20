@@ -1,0 +1,47 @@
+<!-- 用法：web.radio.dict.readme -->
+<div th:id="${id + '_data'}">
+	<input type="hidden" th:id="${id}" th:name="${name == null ? id : name}" th:value="${val}" />
+</div>
+<script type="text/javascript" th:inline="text">
+	/*<![CDATA[*/
+	function [[${id}]]RadioDictOnChange()
+	{
+		var radio = document.getElementsByName("[[${id}]]RadioName");
+		var radioLength = radio.length;
+		for(var i = 0;i < radioLength;i++) {
+			if(radio[i].checked) {
+				$("#[[${id}]]").val(radio[i].value);
+			}
+		}
+	}
+	$(document).ready(function() {
+		$.ajax({
+			type : "get",
+			dataType : "json",
+			url : ctl.path + '/sys/dict/json',
+			data : {
+				ver : Math.random(),
+				genre : "[[${genre}]]"
+			},
+			success : function(data) {
+				if (data != null && typeof (data) != "undefined" && data.length > 0) {
+					var id = "[[${id}]]";
+					var val = "[[${val}]]";
+					var disabled = "[[${disabled == null ? '' : disabled}]]";
+					for (var i in data) {
+						var checked = "";
+						if (val != null && val.length > 0 && data[i].id == val) { // 判断data与val是否有匹配值
+							checked = "checked='checked' ";
+						}
+						var disabledStr = "";
+						if (disabled != null && disabled.length > 0) {
+							disabledStr = "disabled='disabled' ";
+						}
+						$("#[[${id}]]_data").append('<input type="radio" onchange="[[${id}]]RadioDictOnChange();" id="' + id + i + '" name="' + id + 'RadioName" ' + checked + disabledStr + 'value="' + data[i].id + '"/><label for="' + id + i + '">' + data[i].name + '&nbsp;&nbsp;</label>');
+					}
+				}
+			}
+		});
+	});
+	/*]]>*/
+</script>

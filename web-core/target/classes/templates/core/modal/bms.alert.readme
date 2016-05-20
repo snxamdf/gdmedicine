@@ -1,0 +1,24 @@
+参数列表：
+id------------------不能为空------String------唯一标识，名称中不能包含“.”
+title---------------可以为空------String------弹出窗提示标题
+content-------------不能为空------String------弹出窗提示内容
+参数列表例子：
+<div th:include="core/include/modal/bms.alert" th:with="id='saveAlert',content='保存成功！'">
+	<div th:id="saveAlertDialog" class="ui small modal">
+		<i class="close icon"></i>
+		<div class="header">系统提示</div>
+		<div class="content">
+			<p>提示内容！</p>
+		</div>
+		<div class="actions">
+			<div th:id="saveAlertOkBtn" class="ui positive button">确定</div>
+		</div>
+	</div>
+</div>
+
+
+$('#saveAlertOkBtn').click(function() {
+	// 点击确定按钮后的代码
+});
+// 显示弹窗
+$('#saveAlertDialog').modal('show');

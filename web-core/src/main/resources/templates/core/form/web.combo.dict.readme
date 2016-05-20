@@ -1,0 +1,29 @@
+参数列表：
+id------------------不能为空------String------唯一标识，名称中不能包含“.”
+name----------------可以为空------String------对应controller获取选中值的变量名称，名称中可以包含“.”，为空时值等于id
+genre---------------不能为空------String------通过该genre获取json列表数据并初始化下拉列表，必须包含id、name字段
+val-----------------可以为空------String------选中项目的Id值
+required------------可以为空------Boolean-----是否是必填项
+loadable------------可以为空------Boolean-----是否自动加载并显示数据
+sclass--------------可以为空------String------select的class自定义样式
+sstyle--------------可以为空------String------select的style自定义样式
+参数列表例子：
+<div th:include="core/form/web.combo.dict" th:with="id='genre',val='10',loadable='false',genre='sys_user.genre'"></div>
+
+
+// value改变时执行操作的写法：
+$("#genre").bind("onchanged", function(event, value) {
+});
+
+// 数据加载后执行操作的写法：
+$("#genre").bind("onloaded", function() {
+});
+
+// 重新加载数据的写法：
+$("#genre").trigger("loaded", {
+	"id" : 123456,
+	"name" : 'abcdef'
+});
+
+// 清除数据的写法：
+$("#genre").trigger("clear");

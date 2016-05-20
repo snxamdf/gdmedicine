@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN" layout:decorator="core/layout/web.default" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head layout:fragment="head">
+<div th:if="false">
+	<!--[if lt IE 9]>
+<script src="../../../../../../isy-core/src/main/resources/static/core/js/html5.js"></script>
+<![endif]-->
+	<!--[if IE 6]>
+	<script type="text/javascript" src="../../../../../../isy-core/src/main/resources/static/core/js/DD_belatedPNG.js" ></script>	
+	<script type="text/javascript">
+		DD_belatedPNG.fix('.fixpng');
+	</script>
+<![endif]-->
+</div>
+<title>提示</title>
+<meta name="description" content="" />
+<meta name="author" content="" />
+<meta charset="utf-8" th:substituteby="core/layout/include/web.head" />
+<script th:if="false" src="../../../../../../isy-core/src/main/resources/static/core/js/jquery.min.js"></script>
+<link th:if="false" href="../../../../../../isy-core/src/main/resources/static/core/css/global.css" rel="stylesheet" />
+<link href="../../../../../../isy-core/src/main/resources/static/core/css/pop.css" th:href="@{${#ctl.statics}+'/core/css/pop.css'(ver=${#ver})}" rel="stylesheet" />
+</head>
+
+<body layout:fragment="body">
+<!-- 	<div class="pop_main checkout"> -->
+<!-- 		<div class="prompt fixpng"></div> -->
+		<!--Prompt_end -->
+<!-- 		<div class="pop_nr"> -->
+<!-- 			<p th:text="${content}">密码修改成功</p> -->
+<!-- 		</div> -->
+		<!--pop_nr_end-->
+		
+<!-- 	</div> -->
+	<!--pop_main_end-->
+	<div class="tips"><span th:text="${content}">密码修改成功！</span></div>
+</body>
+</html>

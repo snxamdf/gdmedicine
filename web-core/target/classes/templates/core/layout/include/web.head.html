@@ -1,0 +1,26 @@
+<!--/* 头 */-->
+<meta charset="UTF-8" />
+<div th:utext="|&lt;!--[if lt IE 9]&gt;|"></div>
+<script type="text/javascript" th:src="@{${#ctl.statics}+'/core/js/html5.js'(ver=${#ver})}" src="/core/js/html5.js"></script>
+<div th:utext="|&lt;![endif]--&gt;|"></div>
+<div th:utext="|&lt;!--[if IE 6]&gt;|"></div>
+<script type="text/javascript" th:src="@{${#ctl.statics}+'/core/js/DD_belatedPNG.js'(ver=${#ver})}" src="/core/js/DD_belatedPNG.js"></script>
+<script type="text/javascript">
+	DD_belatedPNG.fix('.fixpng');
+</script>
+<div th:utext="|&lt;![endif]--&gt;|"></div>
+<link rel="shortcut icon" th:href="@{${#ctl.statics}+'/favicon.ico'}" />
+<link rel="stylesheet" th:href="@{${#ctl.statics}+'/core/css/global.css'(ver=${#ver})}" />
+<script type="text/javascript" th:src="@{${#ctl.statics}+'/core/js/jquery.min.js'(ver=${#ver})}"></script>
+<script type="text/javascript" th:src="@{${#ctl.statics}+'/core/js/base.js'(ver=${#ver})}"></script>
+<script type="text/javascript" th:utext="|var ctl={path:'|+${#ctl.path}+|',env:'|+${#ctl.env}+|',profile:'|+${#ctl.profile}+|',apis:'|+${#ctl.apis}+|',assets:'|+${#ctl.assets}+|',statics:'|+${#ctl.statics}+|',developers:'|+${#ctl.developers}+|',operations:'|+${#ctl.operations}+|',uploads:'|+${#ctl.uploads}+|'};|"></script>
+<!-- 百度统计异步代码 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?b973dd11fce582765aa4ddd0493d48c8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>

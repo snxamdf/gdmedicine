@@ -1,0 +1,12 @@
+<!-- 用法：confirm.readme -->
+<div th:id="${id}+'Dialog'" class="ui confirm small modal">
+	<i class="close icon"></i>
+	<div class="header" th:text="${title==null?'系统提示':title}">系统提示</div>
+	<div class="content">
+		<p th:text="${content}"></p>
+	</div>
+	<div class="actions">
+		<div th:id="${id}+'OkBtn'" class="ui positive button">确定</div>
+		<div th:id="${id}+'CancelBtn'" class="ui button">取消</div>
+	</div>
+</div>

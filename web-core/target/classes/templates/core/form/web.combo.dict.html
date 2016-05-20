@@ -1,0 +1,67 @@
+<!-- 用法：web.combo.dict.readme -->
+<select th:id="${id}" th:name="${name == null ? id : name}" th:class="${sclass == null ? '' : sclass}" th:style="${sstyle == null ? '' : sstyle}" th:attr="onchange=${id+'OnChange(this.value)'}">
+	<option value=" ">请选择</option>
+</select>
+<script type="text/javascript" th:inline="text">
+	/*<![CDATA[*/
+	function [[${id}]]OnChange(value) {
+		if (value != null && typeof (value) != "undefined") { // 值为空或未定义忽略:""支持表示请选择
+			$("#[[${id}]]").trigger("onchanged", [value]);
+		}
+	}
+	function [[${id}]]Loaded(event, params) { // 加载数据方法
+		if (!params && typeof(params)!="undefined" && params!=0) {
+			params = {};
+		}
+		$.ajax({
+			type : "get",
+			dataType : "json",
+			url : ctl.path + '/sys/dict/json?genre=[[${genre}]]&v='+Math.random(),
+			data : params,
+			success : function(data) {
+				if (data != null && typeof (data) != "undefined" && data.length > 0) {
+					var val = "[[${val}]]";
+					var isMatch = false;
+					var required = "[[${required}]]";
+					var first = "";
+					for (var i in data) {
+						if (i == 0) {
+							first = data[i].id;
+							if (required == "true") {
+								$("#[[${id}]]").html("");
+							} else {
+								$("#[[${id}]]").html('<option value=" ">请选择</option>'); //如果是非必填，加入请选择选项
+							}
+						}
+						if (val != null && val.length > 0 && data[i].id == val) { // 判断data与val是否有匹配值
+							isMatch = true
+							$("#[[${id}]]").append('<option selected="selected" value="' + data[i].id + '">' + data[i].name + '</option>');
+						} else {
+							$("#[[${id}]]").append('<option value="' + data[i].id + '">' + data[i].name + '</option>');
+						}
+					}
+					if (required == "true" && isMatch == false) { // 如果是必填项，且所有值都没有匹配上，那么就默认选中第一条记录
+						$("#[[${id}]]").val(first);
+					}
+					$("#[[${id}]]").trigger("onloaded"); // 加载完数据后派发onloaded事件
+				}
+			}
+		});
+	}
+	$(document).ready(function() {
+		$("#[[${id}]]").bind("loaded", [[${id}]]Loaded);
+		$("#[[${id}]]").bind("clear", function(){ // 清除数据
+			var required = "[[${required}]]";
+			if (required == "true") {
+				$("#[[${id}]]").html("");
+			} else {
+				$("#[[${id}]]").html('<option value=" ">请选择</option>');
+			}
+		});
+		var loadable = "[[${loadable}]]";
+		if (loadable != "false") {
+			$("#[[${id}]]").trigger("loaded");
+		}
+	});
+	/*]]>*/
+</script>

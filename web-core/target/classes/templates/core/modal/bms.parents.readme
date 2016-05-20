@@ -1,0 +1,4 @@
+参数列表：
+id------------------不能为空------String------唯一标识，名称中不能包含“.”
+参数列表例子：
+<div th:include="core/include/modal/bms.deletion" th:with="id='deletionBtn'"></div>

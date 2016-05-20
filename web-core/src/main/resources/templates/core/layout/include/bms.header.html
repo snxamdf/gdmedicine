@@ -1,0 +1,244 @@
+
+<div class="ui fixed menu inverted navbar">
+	<a class="item" th:href="@{/}" href="/">
+		<div th:if="false" class="dn"></div> <i class="home icon"></i><span class="ui grid fr"><span class="computer only column">爱社员后台</span></span>
+	</a>
+	<div th:if="false" class="dn"></div>
+	<a class="item" href="javascript:openMbrSidebar();">
+		<div th:if="false" class="dn"></div> <i class="users icon"></i><span class="ui grid fr"><span class="tablet computer only column">合作社管理</span></span>
+	</a>
+	<div th:if="false" class="dn"></div>
+	<a class="item" href="javascript:openPinSidebar();">
+		<div th:if="false" class="dn"></div> <i class="cubes icon"></i><span class="ui grid fr"><span class="tablet computer only column">财务管理</span></span>
+	</a>
+	<div th:if="false" class="dn"></div>
+	<a class="item" href="javascript:openCmsSidebar();">
+		<div th:if="false" class="dn"></div> <i class="font icon"></i><span class="ui grid fr"><span class="tablet computer only column">内容管理</span></span>
+	</a>
+	<div th:if="false" class="dn"></div>
+	<a class="item" href="javascript:openSysSidebar();">
+		<div th:if="false" class="dn"></div> <i class="settings icon"></i><span class="ui grid fr"><span class="tablet computer only column">系统管理</span></span>
+	</a>
+	<div class="right menu">
+		<div class="ui pointing dropdown item user">
+			<span class="ui grid fl"><span class="tablet computer only column" th:text="${'您好，' + #strings.abbreviate(#authentication.name,10)}">您好，管理员</span></span> <i class="dropdown icon"></i>
+			<div class="menu">
+				<a class="item" th:href="@{/}"><i class="edit icon"></i>个人信息</a>
+				<div th:if="false" class="dn"></div>
+				<a class="item" th:href="@{${#ctl.path}+'/sys/user/to/repasswd'}"><i class="privacy icon"></i>修改密码</a>
+			</div>
+		</div>
+		<a class="item" th:href="@{${#ctl.path}+'/logout'}" href="/logout">
+			<div th:if="false" class="dn"></div> <i class="sign out icon"></i><span class="ui grid fr"><span class="tablet computer only column">退出</span></span>
+		</a>
+	</div>
+</div>
+<div class="ui red vertical mbr sidebar menu">
+	<div sec:authorize="hasAnyAuthority('agcy:affix:view','agcy:detail:view','agcy:apply:view','agcy:approve:view')" class="header item">
+		<i class="sitemap icon"></i> 合作社
+	</div>
+	<div sec:authorize="hasAnyAuthority('agcy:affix:view','agcy:detail:view','agcy:apply:view','agcy:approve:view')" class="menu">
+<!-- 		<a sec:authorize="hasAuthority('agcy:approve:view')" class="item" th:href="@{${#ctl.path}+'/agcy/approve/list'}" href="../agency/bms.agcy.approve.list.html"> 机构审批</a> -->
+<!-- 		<div th:if="false" class="dn"></div> -->
+		<a sec:authorize="hasAuthority('agcy:affix:view')" class="item" th:href="@{${#ctl.path}+'/agcy/affix/list'}" href="../agency/bms.agcy.affix.list.html"> 机构管理 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('agcy:detail:view')" class="item" th:href="@{${#ctl.path}+'/agcy/detail/list'}" href="../agency/bms.agcy.detail.list.html"> 机构信息明细 </a>
+	</div>
+	<div sec:authorize="hasAnyAuthority('mbr:member:view','mbr:family:view')" class="header item">
+		<i class="users icon"></i> 社员
+	</div>
+	<div sec:authorize="hasAnyAuthority('mbr:member:view','mbr:family:view')" class="menu">
+		<a sec:authorize="hasAuthority('mbr:member:view')" class="item" th:href="@{${#ctl.path}+'/mbr/member/list'}" href="../member/bms.mbr.member.list.html"> 社员管理 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('mbr:family:view')" class="item" th:href="@{${#ctl.path}+'/mbr/family/list'}" href="../member/bms.mbr.family.list.html"> 社员家庭成员 </a>
+	</div>
+	<div sec:authorize="hasAnyAuthority('shr:acc:view','shr:acc:detail:view','shr:acc:run:view','shr:voucher:view')" class="header item">
+		<i class="trophy icon"></i> 股金
+	</div>
+	<div sec:authorize="hasAnyAuthority('shr:acc:view','shr:acc:detail:view','shr:acc:run:view','shr:voucher:view')" class="menu">
+		<a sec:authorize="hasAuthority('shr:acc:view')" class="item" th:href="@{${#ctl.path}+'/shr/acc/list'}" href="../shares/bms.shr.acc.list.html"> 股金账户管理 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('shr:acc:run:view')" class="item" th:href="@{${#ctl.path}+'/shr/acc/run/list'}" href="../shares/bms.shr.acc.run.list.html"> 股金流水 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('shr:acc:detail:view')" class="item" th:href="@{${#ctl.path}+'/shr/acc/detail/list'}" href="../shares/bms.shr.acc.detail.list.html"> 股金账户明细 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('shr:voucher:view')" class="item" th:href="@{${#ctl.path}+'/shr/voucher/list'}" href="../shares/bms.shr.voucher.list.html"> 股金凭证 </a>
+	</div>
+	<div sec:authorize="hasAnyAuthority('fair:apply:view','fair:project:view')" class="header item">
+		<i class="shop icon"></i> 集市
+	</div>
+	<div sec:authorize="hasAnyAuthority('fair:apply:view','fair:project:view')" class="menu">
+		<a sec:authorize="hasAuthority('fair:apply:view')" class="item" th:href="@{${#ctl.path}+'/fair/apply/search/list'}" href="../fair/bms.fair.apply.search.list.html"> 集市申请</a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('fair:project:view')" class="item" th:href="@{${#ctl.path}+'/fair/project/search/list'}" href="../fair/bms.fair.project.search.list.html"> 产品发布</a>
+		<div th:if="false" class="dn"></div>
+	</div>
+</div>
+<div class="ui red vertical pin sidebar menu">
+	<div sec:authorize="hasAnyAuthority('sob:books:view','sob:period:view')" class="header item">
+		<i class="book icon"></i> 账套
+	</div>
+	<div sec:authorize="hasAnyAuthority('sob:books:view','sob:period:view')" class="menu">
+		<a sec:authorize="hasAuthority('sob:books:view')" class="item" th:href="@{${#ctl.path}+'/sob/books/list'}" href="../books/bms.sob.books.list.html"> 帐套 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('sob:period:view')" class="item" th:href="@{${#ctl.path}+'/sob/period/list'}" href="../books/bms.sob.period.list.html"> 会计期间 </a>
+	</div>
+	<div sec:authorize="hasAnyAuthority('subj:genre:view','subj:system:view','subj:subject:view','subj:balance:view','subj:quantity:view')" class="header item">
+		<i class="sitemap icon"></i> 科目
+	</div>
+	<div sec:authorize="hasAnyAuthority('subj:genre:view','subj:system:view','subj:subject:view','subj:balance:view','subj:quantity:view')" class="menu">
+		<a sec:authorize="hasAuthority('subj:genre:view')" class="item" th:href="@{${#ctl.path}+'/subj/genre/list'}" href="../subject/bms.subj.genre.list.html"> 科目类别 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('subj:system:view')" class="item" th:href="@{${#ctl.path}+'/subj/system/list'}" href="../subject/bms.subj.system.list.html"> 系统科目 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('subj:subject:view')" class="item" th:href="@{${#ctl.path}+'/subj/subject/list'}" href="../subject/bms.subj.subject.list.html"> 科目列表 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('subj:balance:view')" class="item" th:href="@{${#ctl.path}+'/subj/balance/list'}" href="../subject/bms.subj.balance.list.html"> 科目余额 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('subj:quantity:view')" class="item" th:href="@{${#ctl.path}+'/subj/quantity/list'}" href="../subject/bms.subj.quantity.list.html"> 科目数量 </a>
+	</div>
+	<div sec:authorize="hasAnyAuthority('vchr:word:view','vchr:digest:view','vchr:voucher:view','vchr:entry:view','vchr:template:type:view','vchr:template:view','vchr:template:entry:view')" class="header item">
+		<i class="film icon"></i> 凭证
+	</div>
+	<div sec:authorize="hasAnyAuthority('vchr:word:view','vchr:digest:view','vchr:voucher:view','vchr:entry:view','vchr:template:type:view','vchr:template:view','vchr:template:entry:view')" class="menu">
+		<a sec:authorize="hasAuthority('vchr:word:view')" class="item" th:href="@{${#ctl.path}+'/vchr/word/list'}" href="../voucher/bms.vchr.word.list.html"> 凭证字 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('vchr:digest:view')" class="item" th:href="@{${#ctl.path}+'/vchr/digest/list'}" href="../voucher/bms.vchr.digest.list.html"> 凭证摘要 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('vchr:voucher:view')" class="item" th:href="@{${#ctl.path}+'/vchr/voucher/voucherlist'}" href="../voucher/bms.vchr.voucher.list.html"> 凭证 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('vchr:entry:view')" class="item" th:href="@{${#ctl.path}+'/vchr/entry/list'}" href="../voucher/bms.vchr.entry.list.html"> 凭证分录 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('vchr:template:type:view')" class="item" th:href="@{${#ctl.path}+'/vchr/template/type/list'}" href="../voucher/bms.vchr.template.type.list.html"> 凭证模版类型 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('vchr:template:view')" class="item" th:href="@{${#ctl.path}+'/vchr/template/list'}" href="../voucher/bms.vchr.template.list.html"> 凭证模版 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('vchr:template:entry:view')" class="item" th:href="@{${#ctl.path}+'/vchr/template/entry/list'}" href="../voucher/bms.vchr.template.entry.list.html"> 凭证模版分录 </a>
+	</div>
+	<div sec:authorize="hasAnyAuthority('rpt:subsld:view','rpt:gld:view','rpt:sjl:view')" class="header item">
+		<i class="inbox icon"></i> 账簿
+	</div>
+	<div sec:authorize="hasAnyAuthority('rpt:subsld:view','rpt:gld:view','rpt:sjl:view')" class="menu">
+		<a sec:authorize="hasAuthority('rpt:subsld:view')" class="item" th:href="@{${#ctl.path}+'/rpt/subsld/index'}" href="../report/bms.rpt.subsld.html"> 明细账 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('rpt:gld:view')" class="item" th:href="@{${#ctl.path}+'/rpt/gld/index'}" href="../report/bms.rpt.gld.html"> 总账 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('rpt:sjl:view')" class="item" th:href="@{${#ctl.path}+'/rpt/sjl/index'}" href="../report/bms.rpt.sjl.html"> 科目余额表 </a>
+	</div>
+	<div sec:authorize="hasAnyAuthority('rpt:bls:view','rpt:pfs:view','rpt:ecs:view')" class="header item">
+		<i class="bar chart icon"></i> 报表
+	</div>
+	<div sec:authorize="hasAnyAuthority('rpt:bls:view','rpt:pfs:view','rpt:ecs:view')" class="menu">
+		<a sec:authorize="hasAuthority('rpt:bls:view')" class="item" th:href="@{${#ctl.path}+'/rpt/bls/index'}" href="../report/bms.rpt.bls.sheets.html"> 资产负债表 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('rpt:pfs:view')" class="item" th:href="@{${#ctl.path}+'/rpt/pfs/index'}" href="../report/bms.rpt.pfs.sheets.html"> 盈余及盈余分配表 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('rpt:ecs:view')" class="item" th:href="@{${#ctl.path}+'/rpt/ecs/index'}" href="../report/bms.rpt.ecs.sheets.html"> 成员权益变动表 </a>
+	</div>
+</div>
+<div class="ui red vertical cms sidebar menu">
+	<div sec:authorize="hasAnyAuthority('cms:affiche:view','cms:example:view','cms:financial:view','cms:news:view','cms:market:view','cms:faq:view')" class="header item">
+		<i class="comment icon"></i> 内容
+	</div>
+	<div sec:authorize="hasAnyAuthority('cms:affiche:view','cms:example:view','cms:financial:view','cms:news:view','cms:market:view','cms:faq:view')" class="menu">
+		<a sec:authorize="hasAuthority('cms:affiche:view')" class="item" th:href="@{${#ctl.path}+'/cms/affiche/list'}" href="../cms/bms.cms.affiche.list.html"> 系统公告管理 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('cms:financial:view')" class="item" th:href="@{${#ctl.path}+'/cms/financial/list'}" href="../cms/bms.cms.financial.list.html"> 金融产品管理 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('cms:example:view')" class="item" th:href="@{${#ctl.path}+'/cms/example/list'}" href="../cms/bms.cms.example.list.html"> 案例管理 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('cms:news:view')" class="item" th:href="@{${#ctl.path}+'/cms/news/list'}" href="../cms/bms.cms.news.list.html"> 农业资讯管理 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('cms:market:view')" class="item" th:href="@{${#ctl.path}+'/cms/market/list'}" href="../cms/bms.cms.market.list.html"> 集市管理 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('cms:faq:view')" class="item" th:href="@{${#ctl.path}+'/cms/faq/list'}" href="../cms/bms.cms.faq.list.html"> 常见问题管理 </a>
+	</div>
+	<div sec:authorize="hasAnyAuthority('cms:help:center:view')" class="header item">
+		<i class="comment icon"></i> 操作指南
+	</div>
+	<div sec:authorize="hasAnyAuthority('cms:help:center:view')" class="menu">
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('cms:help:center:view')" class="item" th:href="@{${#ctl.path}+'/cms/help/center/list?search_EQ_type=10000'}" href="../cms/bms.cms.help.center.list.html"> 设置 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('cms:help:center:view')" class="item" th:href="@{${#ctl.path}+'/cms/help/center/list?search_EQ_type=10001'}" href="../cms/bms.cms.help.center.list.html"> 社员 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('cms:help:center:view')" class="item" th:href="@{${#ctl.path}+'/cms/help/center/list?search_EQ_type=10002'}" href="../cms/bms.cms.help.center.list.html"> 股金 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('cms:help:center:view')" class="item" th:href="@{${#ctl.path}+'/cms/help/center/list?search_EQ_type=10003'}" href="../cms/bms.cms.help.center.list.html"> 财务 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('cms:help:center:view')" class="item" th:href="@{${#ctl.path}+'/cms/help/center/list?search_EQ_type=10004'}" href="../cms/bms.cms.help.center.list.html"> 注册 </a>
+	</div>
+</div>
+<div class="ui red vertical sys sidebar menu">
+	<div sec:authorize="hasAnyAuthority('sys:area:view','sys:org:view','sys:user:view')" class="header item">
+		<i class="sitemap icon"></i> 组织机构
+	</div>
+	<div sec:authorize="hasAnyAuthority('sys:area:view','sys:org:view','sys:user:view')" class="menu">
+		<a sec:authorize="hasAuthority('sys:area:view')" class="item" th:href="@{${#ctl.path}+'/sys/area/list'}" href="../sys/bms.area.list.html"> 区域管理 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('sys:org:view')" class="item" th:href="@{${#ctl.path}+'/sys/org/list'}" href="../sys/bms.org.list.html"> 部门管理 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('sys:user:view')" class="item" th:href="@{${#ctl.path}+'/sys/user/list'}" href="../sys/bms.user.list.html"> 用户管理 </a>
+	</div>
+	<div sec:authorize="hasAnyAuthority('sys:menu:view','sys:role:view','sys:dict:view','sys:blacklist:view','sys:user:blacklist:view','sys:conf:view')" class="header item">
+		<i class="settings icon"></i> 系统设置
+	</div>
+	<div sec:authorize="hasAnyAuthority('sys:post:view','sys:menu:view','sys:role:view','sys:dict:view','sys:blacklist:view','sys:user:blacklist:view','sys:conf:view')" class="menu">
+		<a sec:authorize="hasAuthority('sys:menu:view')" class="item" th:href="@{${#ctl.path}+'/sys/menu/list'}" href="../sys/bms.menu.list.html"> 菜单管理 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('sys:post:view')" class="item" th:href="@{${#ctl.path}+'/sys/post/list'}" href="../sys/bms.post.list.html"> 岗位管理 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('sys:role:view')" class="item" th:href="@{${#ctl.path}+'/sys/role/list'}" href="../sys/bms.role.list.html"> 角色管理 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('sys:dict:view')" class="item" th:href="@{${#ctl.path}+'/sys/dict/list'}" href="../sys/bms.dict.list.html"> 字典管理 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('sys:blacklist:view')" class="item" th:href="@{${#ctl.path}+'/sys/blacklist/list'}" href="../sys/bms.blacklist.list.html"> 短信黑名单管理 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('sys:user:blacklist:view')" class="item" th:href="@{${#ctl.path}+'/sys/user/blacklist/list'}" href="../sys/bms.user.blacklist.list.html"> 用户黑名单管理 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('sys:conf:view')" class="item" th:href="@{${#ctl.path}+'/sys/conf/list?search_AC_ordinal=asc'}" href="../sys/bms.conf.list.html"> 系统配置 </a>
+	</div>
+	<div sec:authorize="hasAnyAuthority('sys:log:view')" class="header item">
+		<i class="bug icon"></i> 系统日志
+	</div>
+	<div sec:authorize="hasAnyAuthority('sys:log:view')" class="menu">
+		<a sec:authorize="hasAuthority('sys:log:view')" class="item" th:href="@{${#ctl.path}+'/sys/log/list'}" href="../sys/bms.log.list.html"> 日志查询 </a>
+	</div>
+	<div sec:authorize="hasAnyAuthority('chan:smslog:view')" class="header item">
+		<i class="exchange icon"></i> 通道
+	</div>
+	<div sec:authorize="hasAnyAuthority('chan:smslog:view')" class="menu">
+		<a sec:authorize="hasAuthority('chan:smslog:view')" class="item" th:href="@{${#ctl.path}+'/chan/smslog/list'}" href="../channel/bms.chan.smslog.list.html"> 短信日志 </a>
+	</div>
+	<div sec:authorize="hasAnyAuthority('eg:classes:view','eg:teacher:view','eg:student:view','eg:course:view','eg:score:view')" class="header item">
+		<i class="flag icon"></i> 示例
+	</div>
+	<div sec:authorize="hasAnyAuthority('eg:classes:view','eg:teacher:view','eg:student:view','eg:course:view','eg:score:view')" class="menu">
+		<a sec:authorize="hasAuthority('eg:classes:view')" class="item" th:href="@{${#ctl.path}+'/eg/classes/list'}" href="../example/bms.eg.classes.list.html"> 班级信息 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('eg:teacher:view')" class="item" th:href="@{${#ctl.path}+'/eg/teacher/list'}" href="../example/bms.eg.teacher.list.html"> 老师信息 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('eg:student:view')" class="item" th:href="@{${#ctl.path}+'/eg/student/list'}" href="../example/bms.eg.student.list.html"> 学生信息 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('eg:course:view')" class="item" th:href="@{${#ctl.path}+'/eg/course/list'}" href="../example/bms.eg.course.list.html"> 课程信息 </a>
+		<div th:if="false" class="dn"></div>
+		<a sec:authorize="hasAuthority('eg:score:view')" class="item" th:href="@{${#ctl.path}+'/eg/score/list'}" href="../example/bms.eg.score.list.html"> 学生成绩 </a>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.ui.pointing.dropdown.item.user').dropdown();
+	});
+	function openMbrSidebar() {
+		$('.mbr.sidebar').sidebar('toggle');
+	}
+	function openPinSidebar() {
+		$('.pin.sidebar').sidebar('toggle');
+	}
+	function openSysSidebar() {
+		$('.sys.sidebar').sidebar('toggle');
+	}
+	function openCmsSidebar() {
+		$('.cms.sidebar').sidebar('toggle');
+	}
+</script>

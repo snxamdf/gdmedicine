@@ -1,0 +1,9 @@
+/*Copyright (c) 2015 YiNongDai.com All rights reserved.*/
+
+.zhb_chx .more_open, .zhb_chx .more_close{ background:url(../images/main_icon.png) no-repeat;}
+
+.bb_tl_r a span{background:url(../images/main_icon.png) no-repeat;}
+
+.bb_tab th{ height:28px; line-height:28px; background:url(../images/line_bg.png) repeat-x; text-align:center;}
+
+.bb_quanyi th{height:28px; line-height:28px; background:url(../images/line_bg.png) repeat-x; text-align:center; width:135px;}

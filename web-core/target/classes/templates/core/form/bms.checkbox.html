@@ -1,0 +1,45 @@
+<!-- 用法：bms.checkbox.readme -->
+<div th:id="${id + '_data'}">
+	<input type="hidden" th:id="${id}" th:name="${name == null ? id : name}" />
+</div>
+<script type="text/javascript" th:inline="javascript">
+	/*<![CDATA[*/
+	$(document).ready(function() {
+		$.ajax({
+			type : "get",
+			dataType : "json",
+			url : /*[[${url}]]*/,
+			data : {
+				v : Math.random()
+			},
+			success : function(data) {
+				if (data != null && typeof (data) != "undefined" && data.length > 0) {
+					var vals =[];
+					for (var i in data) {
+						var checked = "";
+						if (data[i].checked == true) {
+							checked = "checked='checked' ";
+							vals.push(data[i].id);
+						}
+						$(/*[[${'#'+id+'_data'}]]*/).append('<div class="ui checkbox"><input type="checkbox" ' + checked + 'value="' + data[i].id + '"/><label>' + data[i].name + '&nbsp;&nbsp;</label></div>');
+					}
+					if (vals.length > 0) {
+						$(/*[[${'#'+id}]]*/).val(vals);
+					}
+					$(/*[[${'#' + id + '_data > .ui.checkbox'}]]*/).checkbox({
+						onChange: function(value) {
+							var values =[];
+							$(/*[[${'#' + id + '_data input[type="checkbox"]:checked'}]]*/).each(function(){
+								values.push($(this).val());
+							});
+							if (values.length > 0) {
+								$(/*[[${'#'+id}]]*/).val(values);
+							}
+						}
+					});
+				}
+			}
+		});
+	});
+	/*]]>*/
+</script>

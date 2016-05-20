@@ -1,0 +1,45 @@
+<!-- 用法：web.checkbox.readme -->
+<div th:id="${id + '_data'}">
+	<input type="hidden" th:id="${id + '_checked'}" th:name="${id + '_checked'}" />
+</div>
+<script type="text/javascript" th:inline="text">
+	/*<![CDATA[*/
+	function [[${id}]]OnClick() {
+		var str = "";
+		var i = 0;
+		$("input[name='[[${id}]]']:checkbox").each(function() {
+			if ($(this).attr("checked")) {
+				if (i > 0) {
+					str += ","
+				}
+				str += $(this).attr("id");
+				i++;
+			}
+		})
+		$("#[[${id}]]_checked").val(str);
+	}
+	$(document).ready(function() {
+		$.ajax({
+			type : "get",
+			dataType : "json",
+			url : "[[${url}]]",
+			data : {
+				v : Math.random()
+			},
+			success : function(data) {
+				if (data != null && typeof (data) != "undefined" && data.length > 0) {
+					var id = "[[${id}]]";
+					for (var i in data) {
+						var checked = "";
+						if (data[i].checked == true) {
+							checked = "checked='checked' ";
+						}
+						$("#[[${id}]]_data").append('<i><input type="checkbox" class="w13" onclick="[[${id}]]OnClick();" id="' + id + i + '" name="' + id + '" ' + checked + 'value="' + data[i].id + '"/><label for="' + id + i + '">' + data[i].name + '&nbsp;&nbsp;</label></i>');
+					}
+					[[${id}]]OnClick();
+				}
+			}
+		});
+	});
+	/*]]>*/
+</script>

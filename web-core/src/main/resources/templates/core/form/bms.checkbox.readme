@@ -1,0 +1,6 @@
+参数列表：
+id------------------不能为空------String------唯一标识，名称中不能包含“.”
+name----------------可以为空------String------对应controller获取选中值的变量名称，名称中可以包含“.”，为空时值等于id
+url-----------------不能为空------String------通过该url获取json列表数据并初始化下拉列表，必须包含id、name字段
+参数列表例子：
+<div th:include="core/form/bms.checkbox" th:with="id='roles',url=@{'/sys/user/role/json'(user=root)}"></div>
