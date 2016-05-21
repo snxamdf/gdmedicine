@@ -3,7 +3,7 @@
  *
  * 
  */
-package com.yhy.sys.controller;
+package com.yhy.medicine.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,12 +16,12 @@ import com.yhy.core.constants.CTL;
 import com.yhy.core.controller.BaseController;
 import com.yhy.core.dto.Module;
 import com.yhy.core.service.BaseService;
-import com.yhy.sys.constants.SYS;
-import com.yhy.sys.domain.Role;
-import com.yhy.sys.service.RoleService;
+import com.yhy.medicine.constants.MEDICINE;
+import com.yhy.medicine.domain.MedicineChain;
+import com.yhy.medicine.service.MedicineChainService;
 
 /**
- * 医药管理Controller.
+ * 医药管理表Controller.
  * 
  * @author yhy
  * @version 2016-05-22
@@ -32,23 +32,23 @@ import com.yhy.sys.service.RoleService;
  */
 @WebEnv
 @Controller
-@RequestMapping(value = CTL.WEB_PATH + "/sys/role")
-public class WebRoleController extends BaseController<Role, String> {
+@RequestMapping(value = CTL.WEB_PATH + "/medicine/chain")
+public class WebMedicineChainController extends BaseController<MedicineChain, String> {
 
 	@SuppressWarnings("unused")
-	private static Logger logger = LoggerFactory.getLogger(WebRoleController.class);
+	private static Logger logger = LoggerFactory.getLogger(WebMedicineChainController.class);
 
 	@Autowired
-	private RoleService roleService;
+	private MedicineChainService medicineChainService;
 
 	@Override
-	public BaseService<Role, String> getService() {
-		return roleService;
+	public BaseService<MedicineChain, String> getService() {
+		return medicineChainService;
 	}
 
 	@Override
-	public Module<Role> getModule() {
-		return new Module<Role>(SYS.PROJECT, "role", CTL.WEB, Role.class);
+	public Module<MedicineChain> getModule() {
+		return new Module<MedicineChain>(MEDICINE.PROJECT, "medicine.chain", CTL.WEB, MedicineChain.class);
 	}
 
 }

@@ -24,15 +24,15 @@ import com.yhy.medicine.service.MedicineChainService;
  * 医药管理表Controller.
  * 
  * @author yhy
- * @version 2016-05-21
+ * @version 2016-05-22
  * @----------------------------------------------------------------------------------------
  * @updated 修改描述.
  * @updated by yhy
- * @updated at 2016-05-21
+ * @updated at 2016-05-22
  */
 @BmsEnv
 @Controller
-@RequestMapping(value = CTL.WEB_PATH + "/medicine/chain")
+@RequestMapping(value = CTL.BMS_PATH + "/medicine/chain")
 public class BmsMedicineChainController extends BaseController<MedicineChain, String> {
 
 	@SuppressWarnings("unused")
@@ -48,7 +48,7 @@ public class BmsMedicineChainController extends BaseController<MedicineChain, St
 
 	@Override
 	public Module<MedicineChain> getModule() {
-		return new Module<MedicineChain>(MEDICINE.PROJECT, "medicine.chain", CTL.WEB, MedicineChain.class);
+		return new Module<MedicineChain>(MEDICINE.PROJECT, "medicine.chain", CTL.BMS, MedicineChain.class);
 	}
 
 }

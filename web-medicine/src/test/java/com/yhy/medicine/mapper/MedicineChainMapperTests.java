@@ -23,11 +23,11 @@ import com.yhy.medicine.domain.MedicineChain;
  * 禁用事务回滚使用@Rollback(false).
  * 
  * @author yhy
- * @version 2016-05-21
+ * @version 2016-05-22
  * @----------------------------------------------------------------------------------------
  * @updated 修改描述.
  * @updated by yhy
- * @updated at 2016-05-21
+ * @updated at 2016-05-22
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = MedicineApplication.class)

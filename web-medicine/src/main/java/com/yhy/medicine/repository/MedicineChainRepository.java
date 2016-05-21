@@ -12,11 +12,11 @@ import com.yhy.medicine.domain.MedicineChain;
  * 医药管理表Repository接口.
  * 
  * @author yhy
- * @version 2016-05-21
+ * @version 2016-05-22
  * @----------------------------------------------------------------------------------------
  * @updated 修改描述.
  * @updated by yhy
- * @updated at 2016-05-21
+ * @updated at 2016-05-22
  */
 public interface MedicineChainRepository extends BaseRepository<MedicineChain, String> {
 

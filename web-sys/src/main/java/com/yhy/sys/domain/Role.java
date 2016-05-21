@@ -17,11 +17,11 @@ import com.yhy.core.domain.Sys;
  * 医药管理Domain
  * 
  * @author yhy
- * @version 2016-05-21
+ * @version 2016-05-22
  * @----------------------------------------------------------------------------------------
  * @updated 修改描述.
  * @updated by yhy
- * @updated at 2016-05-21
+ * @updated at 2016-05-22
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -33,4 +33,5 @@ public class Role extends Sys<String> {
 	private String name;
 	private String genre;
 	private String code;
+
 }

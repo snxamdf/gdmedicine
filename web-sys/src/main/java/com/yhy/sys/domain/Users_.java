@@ -14,11 +14,11 @@ import javax.persistence.metamodel.StaticMetamodel;
  * 用户表元模型类
  * 
  * @author yhy
- * @version 2016-05-21
+ * @version 2016-05-22
  * @----------------------------------------------------------------------------------------
  * @updated 修改描述.
  * @updated by yhy
- * @updated at 2016-05-21
+ * @updated at 2016-05-22
  */
 @StaticMetamodel(Users.class)
 public class Users_ {
