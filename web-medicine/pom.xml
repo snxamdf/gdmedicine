@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<groupId>com.gdm</groupId>
-	<artifactId>web-main</artifactId>
+	<artifactId>web-medicine</artifactId>
 	<version>1.0.0</version>
-	<packaging>war</packaging>
-
+	<packaging>jar</packaging>
+	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -16,17 +16,9 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.gdm</groupId>
-			<artifactId>web-medicine</artifactId>
+			<artifactId>web-core</artifactId>
 			<version>1.0.0</version>
 		</dependency>
-		
-		<!-- tomcat -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		
 		<!-- test -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -36,23 +28,20 @@
 	</dependencies>
 	
 	<properties>
-		<start-class>com.gdm.main.WebApplication</start-class>
 		<jdk.version>1.7</jdk.version>
 	</properties>
-	
+
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<!-- war 打包插件, 设定war包名称不带版本号 -->
+			<!-- jar打包相关插件 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
+				<artifactId>maven-jar-plugin</artifactId>
 				<configuration>
-					<!--warName>${project.artifactId}</warName-->
-					<packagingExcludes>**/static/**</packagingExcludes>
+					<excludes>
+						<exclude>**/ChannelApplication.class</exclude>
+						<exclude>**/static/**</exclude>
+					</excludes>
 				</configuration>
 			</plugin>
 			<!-- compiler插件, 设定JDK版本 -->
