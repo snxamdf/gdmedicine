@@ -28,6 +28,7 @@
 	</dependencies>
 
 	<properties>
+		<start-class>com.yhy.medicine.MedicineApplication</start-class>
 		<jdk.version>1.7</jdk.version>
 	</properties>
 
