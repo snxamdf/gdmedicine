@@ -37,8 +37,7 @@ import com.yhy.core.utils.Strings;
  */
 public class IllegalCharacterFilter implements Filter {
 
-	private static Logger logger = Logger
-			.getLogger(IllegalCharacterFilter.class);
+	private static Logger logger = Logger.getLogger(IllegalCharacterFilter.class);
 
 	private String[] characterParams = {};
 	private String[] urlExcludes = {};
@@ -56,8 +55,7 @@ public class IllegalCharacterFilter implements Filter {
 	/**
 	 * 此程序块主要用来解决参数带非法字符等过滤功能
 	 */
-	public void doFilter(ServletRequest request, ServletResponse response,
-			FilterChain chain) throws IOException, ServletException {
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 
@@ -125,8 +123,7 @@ public class IllegalCharacterFilter implements Filter {
 				res.setStatus(441);
 			} else {
 				PrintWriter out = res.getWriter();
-				out.print("<script language='javascript'>alert(\"存在非法字符，请检查输入内容!\");"
-						+ "window.history.go(-1);</script>");
+				out.print("<script language='javascript'>alert(\"存在非法字符，请检查输入内容!\");" + "window.history.go(-1);</script>");
 			}
 		} else {
 			chain.doFilter(request, response);

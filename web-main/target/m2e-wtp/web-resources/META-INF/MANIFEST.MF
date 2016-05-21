@@ -3,8 +3,8 @@ Implementation-Vendor: Pivotal Software, Inc.
 Implementation-Title: web-main
 Implementation-Version: 1.0.0
 Implementation-Vendor-Id: com.yhy
-Build-Jdk: 1.7.0_71
-Built-By: 201512080143
+Build-Jdk: 1.7.0_79
+Built-By: ￧ﾺﾢ￥ﾲﾩ
 Created-By: Maven Integration for Eclipse
 Main-Class: com.yhy.main.WebApplication
 
