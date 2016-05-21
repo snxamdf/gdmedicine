@@ -6,14 +6,12 @@
 	</resultMap>
 	<resultMap id="sysResultMap" type="com.gdm.core.dto.Sys" extends="pkResultMap">
 		<result column="memo" property="memo" jdbcType="VARCHAR" />
-		<result column="agency" property="agency" jdbcType="VARCHAR" />
 		<result column="creater" property="creater" jdbcType="VARCHAR" />
 		<result column="created" property="created" jdbcType="TIMESTAMP" />
 		<result column="modifier" property="modifier" jdbcType="DECIMAL" />
 		<result column="modified" property="modified" jdbcType="TIMESTAMP" />
 		<result column="version" property="version" jdbcType="DECIMAL" />
 		<result column="deletion" property="deletion" jdbcType="DECIMAL" />
-		<result column="artifical" property="artifical" jdbcType="DECIMAL" />
 		<result column="history" property="history" jdbcType="DECIMAL" />
 	</resultMap>
 	<resultMap id="treeResultMap" type="com.gdm.core.dto.Tree" extends="sysResultMap">

@@ -39,13 +39,13 @@ public class Columns extends Pk<String> {
 	}
 
 	public String getIsSys(String extend) {
-		if ("id".equals(name) || "agency".equals(name) || "memo".equals(name)) {
+		if ("id".equals(name) || "memo".equals(name)) {
 			return "true";
 		}
 		if ("creater".equals(name) || "created".equals(name) || "modifier".equals(name) || "modified".equals(name)) {
 			return "true";
 		}
-		if ("version".equals(name) || "deletion".equals(name) || "artifical".equals(name) || "history".equals(name)) {
+		if ("version".equals(name) || "deletion".equals(name) || "history".equals(name)) {
 			return "true";
 		}
 		if ("tree".equals(extend)) {

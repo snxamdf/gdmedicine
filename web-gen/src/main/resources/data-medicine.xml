@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-	<!-- 模块id值规则：web + 两位序列号 -->
+	<!-- 模块id值规则：cms + 两位序列号 -->
 	<!-- 模块project_id值规则（支持多项目） ：对应项目id + "," -->
-	<t_gen_modules id="web01" code="web" generate="false" name="前台模块" author="YHY" project_id="isy-web,"/>
-	
-	
+	<t_gen_modules id="medicine01" code="medicine" generate="true" name="医药管理" author="yhy" project_id="web-medicine," />
+
+
 	<!-- 表id值规则：对应模块id + 三位序列号 -->
 	<!-- 表module_id值规则（支持多模块） ：对应模块id + "," -->
 	<!-- 表extend值规则 ：sys(cdm中继承bmain)或tree(cdm中继承btree) -->
-	<t_gen_tables id="web01001" code="t_web_eg" generate="false" menu="false" name="示例" comments="示例" extend="sys" module_id="web01,"/>
+	<t_gen_tables id="medicine01001" code="t_medicine_chain" generate="true" menu="true" name="医药管理表" comments="医药管理表" extend="sys" module_id="medicine01," />
 </dataset>

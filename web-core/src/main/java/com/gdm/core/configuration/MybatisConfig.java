@@ -53,7 +53,7 @@ class MybatisConfig {
 		sqlSessionFactoryBean.setPlugins(plugins);
 		// 显式指定Mapper文件位置
 		PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-		sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:/com/creditease/isy/*/mapper/*.xml"));
+		sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:/com/gdm/*/mapper/*.xml"));
 		return sqlSessionFactoryBean.getObject();
 	}
 

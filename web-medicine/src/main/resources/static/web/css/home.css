@@ -404,7 +404,7 @@
 	display: block;
 	background-position: 15px -577px;
 }
-/*.xtjsh_lf li a:hover, .xtjsh_lf li .select{ display:block; background:url(../../../../../../../isy-core/src/main/resources/static/core/images/main_icon.png) no-repeat 15px -544px #4799ff; color:#fff;}*/
+/*.xtjsh_lf li a:hover, .xtjsh_lf li .select{ display:block; background:url(../../../../../../../web-core/src/main/resources/static/core/images/main_icon.png) no-repeat 15px -544px #4799ff; color:#fff;}*/
 
 .xtjsh_rt {
 	width: 730px;
@@ -1086,7 +1086,7 @@ input {
 }
 /*图片*/
 /*.jr_mail, .jr_tel, .img-scroll .prev, .img-scroll .next, .xq_title a, .xq_bot a {
-	background: url(../../../../../../../isy-core/src/main/resources/static/core/images/main_icon.png) no-repeat;
+	background: url(../../../../../../../web-core/src/main/resources/static/core/images/main_icon.png) no-repeat;
 }*/
 
 

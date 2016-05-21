@@ -3,10 +3,10 @@
 <head>
 <div th:if="false">
 	<!--[if lt IE 9]>
-	<script src="../../../../../../isy-core/src/main/resources/static/core/js/html5.js"></script>
+	<script src="../../../../../../web-core/src/main/resources/static/core/js/html5.js"></script>
 <![endif]-->
 	<!--[if IE 6]>
-	<script type="text/javascript" src="../../../../../../isy-core/src/main/resources/static/core/js/DD_belatedPNG.js" ></script>	
+	<script type="text/javascript" src="../../../../../../web-core/src/main/resources/static/core/js/DD_belatedPNG.js" ></script>	
 	<script type="text/javascript">
 		DD_belatedPNG.fix('.fixpng');
 	</script>
@@ -16,15 +16,15 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <meta charset="utf-8" th:substituteby="core/layout/include/web.head" />
-<link th:if="false" href="../../../../../../isy-core/src/main/resources/static/core/css/global.css" rel="stylesheet" />
-<link href="../../../../../../isy-core/src/main/resources/static/core/css/comm.home.css" th:href="@{${#ctl.statics}+'/core/css/comm.home.css'(ver=${#ver})}" rel="stylesheet" />
+<link th:if="false" href="../../../../../../web-core/src/main/resources/static/core/css/global.css" rel="stylesheet" />
+<link href="../../../../../../web-core/src/main/resources/static/core/css/comm.home.css" th:href="@{${#ctl.statics}+'/core/css/comm.home.css'(ver=${#ver})}" rel="stylesheet" />
 <link href="../../static/web/css/home.css" th:href="@{${#ctl.statics}+'/web/css/home.css'(ver=${#ver})}" rel="stylesheet" />
-<script th:if="false" src="../../../../../../isy-core/src/main/resources/static/core/js/jquery.min.js"></script>
-<script th:if="false" src="../../../../../../isy-core/src/main/resources/static/core/js/base.js"></script>
+<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/js/jquery.min.js"></script>
+<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/js/base.js"></script>
 <script src="../../static/web/js/index.js" th:src="@{${#ctl.statics}+'/web/js/index.js'(ver=${#ver})}"></script>
-<script src="../../../../../../isy-core/src/main/resources/static/core/js/jquery-validation/jquery.validate.min.js" th:src="@{${#ctl.statics}+'/core/js/jquery-validation/jquery.validate.min.js'(ver=${#ver})}"></script>
-<script src="../../../../../../isy-core/src/main/resources/static/core/js/jquery-validation/messages_zh.min.js" th:src="@{${#ctl.statics}+'/core/js/jquery-validation/messages_zh.min.js'(ver=${#ver})}"></script>
-<script src="../../../../../../isy-core/src/main/resources/static/core/js/jquery-validation/jquery.validate.methods.js" th:src="@{${#ctl.statics}+'/core/js/jquery-validation/jquery.validate.methods.js'(ver=${#ver})}"></script>
+<script src="../../../../../../web-core/src/main/resources/static/core/js/jquery-validation/jquery.validate.min.js" th:src="@{${#ctl.statics}+'/core/js/jquery-validation/jquery.validate.min.js'(ver=${#ver})}"></script>
+<script src="../../../../../../web-core/src/main/resources/static/core/js/jquery-validation/messages_zh.min.js" th:src="@{${#ctl.statics}+'/core/js/jquery-validation/messages_zh.min.js'(ver=${#ver})}"></script>
+<script src="../../../../../../web-core/src/main/resources/static/core/js/jquery-validation/jquery.validate.methods.js" th:src="@{${#ctl.statics}+'/core/js/jquery-validation/jquery.validate.methods.js'(ver=${#ver})}"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		//for ie	
@@ -69,7 +69,7 @@
 	<div class="head" th:substituteby="core/layout/include/web.header.intro">
 		<div class="w1000">
 			<div class="logo l">
-				<img src="../../../../../../isy-core/src/main/resources/static/core/images/logo.jpg" th:src="@{${#ctl.statics}+'/web/images/sign/logo.jpg'}" width="290" height="55" />
+				<img src="../../../../../../web-core/src/main/resources/static/core/images/logo.jpg" th:src="@{${#ctl.statics}+'/web/images/sign/logo.jpg'}" width="290" height="55" />
 			</div>
 			<!--logo_end-->
 			<div class="sign r">
@@ -211,7 +211,7 @@
 			</div>
 			<div class="copyright">
 				<p>
-					客服电话：<em>400-0636-600</em><a href="mailto:isheyuan@163.com">邮箱 :isheyuan.help@creditease.cn</a>
+					客服电话：<em>400-0636-600</em><a href="mailto:isheyuan@163.com">邮箱 :isheyuan.help@hongyanyang.cn</a>
 				</p>
 			</div>
 		</section>

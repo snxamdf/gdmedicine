@@ -5,26 +5,26 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <meta charset="utf-8" th:substituteby="core/layout/include/bms.head" />
-<link th:if="false" rel="stylesheet" href="../../../../../../isy-core/src/main/resources/static/core/semantic/1.10.4/semantic.min.css" />
-<link th:if="false" rel="stylesheet" href="../../../../../../isy-core/src/main/resources/static/core/jquery-ui/1.11.2/css/jquery-ui.min.css" />
-<link th:if="false" rel="stylesheet" href="../../../../../../isy-core/src/main/resources/static/core/jquery-ui/1.11.2/css/jquery-ui.structure.min.css" />
-<link th:if="false" rel="stylesheet" href="../../../../../../isy-core/src/main/resources/static/core/jquery-ui/1.11.2/css/jquery-ui.theme.min.css" />
-<link th:if="false" rel="stylesheet" href="../../../../../../isy-core/src/main/resources/static/core/jquery-ui-timepicker/1.5.0/css/jquery-ui-timepicker-addon.css" />
-<link th:if="false" rel="stylesheet" href="../../../../../../isy-core/src/main/resources/static/core/jquery-ztree/3.5.17/css/zTreeStyle.css" />
-<link th:if="false" rel="stylesheet" href="../../../../../../isy-core/src/main/resources/static/core/jquery-qtip/2.2.1/css/jquery.qtip.min.css" />
-<link th:if="false" rel="stylesheet" href="../../../../../../isy-core/src/main/resources/static/core/common/css/common.css" />
-<script th:if="false" src="../../../../../../isy-core/src/main/resources/static/core/jquery/1.11.2/js/jquery.min.js"></script>
-<script th:if="false" src="../../../../../../isy-core/src/main/resources/static/core/semantic/1.10.4/semantic.min.js"></script>
-<script th:if="false" src="../../../../../../isy-core/src/main/resources/static/core/jquery-ui/1.11.2/js/jquery-ui.min.js"></script>
-<script th:if="false" src="../../../../../../isy-core/src/main/resources/static/core/jquery-ui/1.11.2/js/datepicker-zh-CN.js"></script>
-<script th:if="false" src="../../../../../../isy-core/src/main/resources/static/core/jquery-ui-timepicker/1.5.0/js/jquery-ui-timepicker-addon.min.js"></script>
-<script th:if="false" src="../../../../../../isy-core/src/main/resources/static/core/jquery-ui-timepicker/1.5.0/js/jquery-ui-timepicker-zh-CN.js"></script>
-<script th:if="false" src="../../../../../../isy-core/src/main/resources/static/core/jquery-ztree/3.5.17/js/jquery.ztree.all.min.js"></script>
-<script th:if="false" src="../../../../../../isy-core/src/main/resources/static/core/jquery-validation/1.13.1/jquery.validate.min.js"></script>
-<script th:if="false" src="../../../../../../isy-core/src/main/resources/static/core/jquery-validation/1.13.1/jquery.validate.defaults.js"></script>
-<script th:if="false" src="../../../../../../isy-core/src/main/resources/static/core/jquery-validation/1.13.1/jquery.validate.methods.js"></script>
-<script th:if="false" src="../../../../../../isy-core/src/main/resources/static/core/jquery-validation/1.13.1/messages_zh.min.js"></script>
-<script th:if="false" src="../../../../../../isy-core/src/main/resources/static/core/jquery-qtip/2.2.1/js/jquery.qtip.min.js"></script>
+<link th:if="false" rel="stylesheet" href="../../../../../../web-core/src/main/resources/static/core/semantic/1.10.4/semantic.min.css" />
+<link th:if="false" rel="stylesheet" href="../../../../../../web-core/src/main/resources/static/core/jquery-ui/1.11.2/css/jquery-ui.min.css" />
+<link th:if="false" rel="stylesheet" href="../../../../../../web-core/src/main/resources/static/core/jquery-ui/1.11.2/css/jquery-ui.structure.min.css" />
+<link th:if="false" rel="stylesheet" href="../../../../../../web-core/src/main/resources/static/core/jquery-ui/1.11.2/css/jquery-ui.theme.min.css" />
+<link th:if="false" rel="stylesheet" href="../../../../../../web-core/src/main/resources/static/core/jquery-ui-timepicker/1.5.0/css/jquery-ui-timepicker-addon.css" />
+<link th:if="false" rel="stylesheet" href="../../../../../../web-core/src/main/resources/static/core/jquery-ztree/3.5.17/css/zTreeStyle.css" />
+<link th:if="false" rel="stylesheet" href="../../../../../../web-core/src/main/resources/static/core/jquery-qtip/2.2.1/css/jquery.qtip.min.css" />
+<link th:if="false" rel="stylesheet" href="../../../../../../web-core/src/main/resources/static/core/common/css/common.css" />
+<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/jquery/1.11.2/js/jquery.min.js"></script>
+<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/semantic/1.10.4/semantic.min.js"></script>
+<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/jquery-ui/1.11.2/js/jquery-ui.min.js"></script>
+<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/jquery-ui/1.11.2/js/datepicker-zh-CN.js"></script>
+<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/jquery-ui-timepicker/1.5.0/js/jquery-ui-timepicker-addon.min.js"></script>
+<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/jquery-ui-timepicker/1.5.0/js/jquery-ui-timepicker-zh-CN.js"></script>
+<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/jquery-ztree/3.5.17/js/jquery.ztree.all.min.js"></script>
+<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/jquery-validation/1.13.1/jquery.validate.min.js"></script>
+<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/jquery-validation/1.13.1/jquery.validate.defaults.js"></script>
+<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/jquery-validation/1.13.1/jquery.validate.methods.js"></script>
+<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/jquery-validation/1.13.1/messages_zh.min.js"></script>
+<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/jquery-qtip/2.2.1/js/jquery.qtip.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#eForm").validate();
@@ -91,9 +91,9 @@
 	<div class="footer">
 		<div class="ui divider"></div>
 		<div class="item">
-			Copyright &copy; 2009-2015 <a href="http://www.creditease.com" target="_blank">CreditEase</a>
+			Copyright &copy; 2009-2015 <a href="http://github.com/snxamdf" target="_blank">hongyanyang</a>
 			<div th:if="false" class="dn"></div>
-			- Powered By <a href="http://www.isheyuan.com" target="_blank">ISY V2.0</a>
+			- Powered By <a href="http://github.com/snxamdf" target="_blank">SXM V2.0</a>
 		</div>
 	</div>
 </body>

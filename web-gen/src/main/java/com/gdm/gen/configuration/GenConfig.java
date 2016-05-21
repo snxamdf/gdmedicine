@@ -27,13 +27,13 @@ class GenConfig {
 	@Value("${spring.datasource.driverClassName:com.mysql.jdbc.Driver}")
 	private String driverClassName;
 
-	@Value("${spring.datasource.url:jdbc:mysql://10.100.30.152:3306/ISY_DEV_DB?useUnicode=true&characterEncoding=utf-8}")
+	@Value("${spring.datasource.url:jdbc:mysql://localhost:3306/medicine?useUnicode=true&characterEncoding=utf-8}")
 	private String url;
 
-	@Value("${spring.datasource.username:isy_dev}")
+	@Value("${spring.datasource.username:root}")
 	private String username;
 
-	@Value("${spring.datasource.password:29kjY89x}")
+	@Value("${spring.datasource.password:root}")
 	private String password;
 
 	@Bean

@@ -34,12 +34,12 @@ public class InitService {
 	@Autowired
 	private DataSource dataSource;
 
-	@Value("${spring.datasource.url:ISY_DEV_DB}")
+	@Value("${spring.datasource.url:medicine}")
 	private String url;
 
 	public String getSchema() {
 		if (Strings.isBlank(url)) {
-			return "ISY_DEV_DB";
+			return "medicine";
 		}
 		String tmp = Strings.substringAfterLast(url, "/");
 		return Strings.substringBefore(tmp, "?");

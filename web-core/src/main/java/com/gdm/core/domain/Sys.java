@@ -59,18 +59,17 @@ public class Sys<ID extends Serializable> extends Pk<ID> {
 	/** 禁用 */
 	public static final short USEABLE_NO = 0;
 
-	protected String memo;
-	protected ID agency;
-	protected ID creater;
+	protected String memo;// 备注
+	protected ID creater;// 创建人员
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	protected Date created = new Date();
-	protected ID modifier;
+	protected Date created = new Date();// 创建日期
+	protected ID modifier;// 修改人员
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	protected Date modified = new Date();
-	protected Long version = 0L;
-	protected Short deletion = 0;
-	protected Short artifical = 0;
-	protected Short history = 0;
+	protected Date modified = new Date();// 修改日期
+	protected Long version = 0L;// //乐观锁
+	protected Short deletion = 0;// 删除标志
+	protected Short history = 0;// 历史数据
+
 	@Transient
 	protected Date filterStartDate; // 开始日期：用于查询
 	@Transient
@@ -88,20 +87,15 @@ public class Sys<ID extends Serializable> extends Pk<ID> {
 	@SuppressWarnings("unchecked")
 	public void prePersist() {
 		Class<?> targetClazz = Cglibs.getTarget(this.getClass());
-		boolean ignoreAudited = targetClazz
-				.isAnnotationPresent(IgnoreAudited.class);
+		boolean ignoreAudited = targetClazz.isAnnotationPresent(IgnoreAudited.class);
 		if (!ignoreAudited) { // 如果是历史备份表，不修改操作人信息
 			if (Auths.isLogin()) {
 				UserDetail userDetail = Auths.getUserDetail();
-				if (agency == null) {
-					// agency = (ID) userDetail.getOrgId();
-				}
+
 				creater = (ID) userDetail.getId();
 				modifier = (ID) userDetail.getId();
 			} else {
-				if (agency == null) {
-					agency = (ID) "root";
-				}
+
 				creater = (ID) "anonymousUser";
 				modifier = (ID) "anonymousUser";
 			}
@@ -118,8 +112,7 @@ public class Sys<ID extends Serializable> extends Pk<ID> {
 	@SuppressWarnings("unchecked")
 	public void preUpdate() {
 		Class<?> targetClazz = Cglibs.getTarget(this.getClass());
-		boolean ignoreAudited = targetClazz
-				.isAnnotationPresent(IgnoreAudited.class);
+		boolean ignoreAudited = targetClazz.isAnnotationPresent(IgnoreAudited.class);
 		if (!ignoreAudited) { // 如果是历史备份表，不修改操作人信息
 			if (Auths.isLogin()) {
 				UserDetail userDetail = Auths.getUserDetail();

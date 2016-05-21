@@ -45,7 +45,7 @@ public class DbunitTests {
 	@Test
 	@Rollback(false)
 	public void testInsert() throws Exception {
-		IDatabaseConnection connection = new DatabaseConnection(dataSource.getConnection(), "ISY_DEV_DB");
+		IDatabaseConnection connection = new DatabaseConnection(dataSource.getConnection(), "medicine");
 		DatabaseConfig config = connection.getConfig();
 		config.setProperty(DatabaseConfig.PROPERTY_DATATYPE_FACTORY, new MySqlDataTypeFactory());
 		config.setProperty(DatabaseConfig.PROPERTY_METADATA_HANDLER, new MySqlMetadataHandler());

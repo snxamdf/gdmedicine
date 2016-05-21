@@ -15,15 +15,15 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan(basePackages = { "com.gdm" })
-public class App1Application extends SpringBootServletInitializer {
+public class MedicineApplication extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(App1Application.class);
+		return application.sources(MedicineApplication.class);
 	}
 
 	public static void main(String[] args) throws Exception {
-		SpringApplication.run(App1Application.class, args);
+		SpringApplication.run(MedicineApplication.class, args);
 	}
 
 }

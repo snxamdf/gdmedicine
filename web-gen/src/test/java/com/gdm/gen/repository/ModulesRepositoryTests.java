@@ -36,16 +36,4 @@ public class ModulesRepositoryTests {
 	@Autowired
 	private ModulesRepository modulesRepository;
 
-	@Test
-	public void testFindOne() throws Exception {
-		Modules modules = modulesRepository.findOne("sys01");
-		System.out.println(modules.getCode());
-	}
-
-	@Test
-	public void testFindByProjectId() throws Exception {
-		List<Modules> modules = modulesRepository.findByProjectId("isy-sys,");
-		System.out.println(modules.size());
-	}
-
 }
