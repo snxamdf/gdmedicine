@@ -5,7 +5,7 @@
  */
 package ${packageName}.${moduleId}.mapper;
 
-import com.gdm.core.mapper.BaseMapper;
+import com.yhy.core.mapper.BaseMapper;
 import ${packageName}.${moduleId}.domain.${className};
 
 /**

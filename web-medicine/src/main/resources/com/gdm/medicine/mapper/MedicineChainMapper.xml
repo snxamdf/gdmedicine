@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.gdm.medicine.mapper.MedicineChainMapper">
-	<resultMap id="baseResultMap" type="com.gdm.medicine.domain.MedicineChain" extends="com.gdm.core.mapper.BaseMapper.sysResultMap">
+<mapper namespace="com.yhy.medicine.mapper.MedicineChainMapper">
+	<resultMap id="baseResultMap" type="com.yhy.medicine.domain.MedicineChain" extends="com.yhy.core.mapper.BaseMapper.sysResultMap">
 		<result column="name" property="name" jdbcType="VARCHAR" />
 	</resultMap>
 

@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.gdm</groupId>
+	<groupId>com.yhy</groupId>
 	<artifactId>web-core</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
@@ -89,7 +89,7 @@
 			<artifactId>assertj-core</artifactId>
 			<version>3.4.0</version>
 		</dependency>
-		
+
 		<!-- mybatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -101,7 +101,7 @@
 			<artifactId>mybatis-spring</artifactId>
 			<version>1.2.4</version>
 		</dependency>
-		
+
 		<!-- poi office -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>

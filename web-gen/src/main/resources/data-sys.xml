@@ -2,12 +2,13 @@
 <dataset>
 	<!-- 模块id值规则：cms + 两位序列号 -->
 	<!-- 模块project_id值规则（支持多项目） ：对应项目id + "," -->
-	<t_gen_modules id="sys01" code="medicine" generate="true" name="系统模块" author="yhy" project_id="web-sys," />
+	<t_gen_modules id="sys01" code="sys" generate="true" name="系统模块" author="yhy" project_id="web-sys," />
 
 
 	<!-- 表id值规则：对应模块id + 三位序列号 -->
 	<!-- 表module_id值规则（支持多模块） ：对应模块id + "," -->
 	<!-- 表extend值规则 ：sys(cdm中继承bmain)或tree(cdm中继承btree) -->
-	<t_gen_tables id="sys01001" code="t_medicine_chain" generate="true" menu="true" name="医药管理表" comments="医药管理表" extend="sys" module_id="sys01" />
-	<t_gen_tables id="sys01002" code="t_users" generate="true" menu="true" name="用户表" comments="用户表" extend="sys" module_id="sys01" />
+	<t_gen_tables id="sys01001" code="t_sys_role" generate="true" menu="false" name="医药管理" comments="医药管理表" extend="sys" module_id="sys01," />
+	<t_gen_tables id="sys01002" code="t_sys_user_roles" generate="true" menu="false" name="用户角色关系表" comments="用户角色关系表" extend="sys" module_id="sys01," />
+	<t_gen_tables id="sys01003" code="t_sys_users" generate="true" menu="false" name="用户表" comments="用户表" extend="sys" module_id="sys01," />
 </dataset>

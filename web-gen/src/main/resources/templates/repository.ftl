@@ -5,7 +5,7 @@
  */
 package ${packageName}.${moduleId}.repository;
 
-import com.gdm.core.repository.BaseRepository;
+import com.yhy.core.repository.BaseRepository;
 import ${packageName}.${moduleId}.domain.${className};
 
 /**

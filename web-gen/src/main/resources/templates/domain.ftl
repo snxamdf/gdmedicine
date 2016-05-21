@@ -19,7 +19,7 @@ import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;
 </#if>
 
-import com.gdm.core.domain.<#if '${tableExtend}' == 'tree'>Tree<#else>Sys</#if>;
+import com.yhy.core.domain.<#if '${tableExtend}' == 'tree'>Tree<#else>Sys</#if>;
 
 /**
  * ${tableName}Domain

@@ -21,8 +21,8 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
-import com.gdm.core.constants.CTL;
-import com.gdm.core.constants.PROFILES;
+import com.yhy.core.constants.CTL;
+import com.yhy.core.constants.PROFILES;
 import ${packageName}.${moduleId}.${applicationName};
 
 /**

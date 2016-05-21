@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.gdm.core.mapper.BaseMapper">
-	<resultMap id="pkResultMap" type="com.gdm.core.dto.Pk">
+<mapper namespace="com.yhy.core.mapper.BaseMapper">
+	<resultMap id="pkResultMap" type="com.yhy.core.dto.Pk">
 		<id column="id" property="id" jdbcType="VARCHAR" />
 	</resultMap>
-	<resultMap id="sysResultMap" type="com.gdm.core.dto.Sys" extends="pkResultMap">
+	<resultMap id="sysResultMap" type="com.yhy.core.dto.Sys" extends="pkResultMap">
 		<result column="memo" property="memo" jdbcType="VARCHAR" />
 		<result column="creater" property="creater" jdbcType="VARCHAR" />
 		<result column="created" property="created" jdbcType="TIMESTAMP" />
@@ -14,7 +14,7 @@
 		<result column="deletion" property="deletion" jdbcType="DECIMAL" />
 		<result column="history" property="history" jdbcType="DECIMAL" />
 	</resultMap>
-	<resultMap id="treeResultMap" type="com.gdm.core.dto.Tree" extends="sysResultMap">
+	<resultMap id="treeResultMap" type="com.yhy.core.dto.Tree" extends="sysResultMap">
 		<result column="code" property="code" jdbcType="VARCHAR" />
 		<result column="name" property="name" jdbcType="VARCHAR" />
 		<result column="fullname" property="fullname" jdbcType="VARCHAR" />

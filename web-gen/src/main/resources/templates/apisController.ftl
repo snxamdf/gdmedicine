@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.gdm.core.annotation.ApisEnv;
-import com.gdm.core.constants.CTL;
-import com.gdm.core.controller.<#if '${tableExtend}' == 'tree'>ApisTree<#else>Apis</#if>Controller;
-import com.gdm.core.dto.Module;
-import com.gdm.core.service.BaseService;
-import com.gdm.${moduleId}.constants.${projectId?upper_case};
+import com.yhy.core.annotation.ApisEnv;
+import com.yhy.core.constants.CTL;
+import com.yhy.core.controller.<#if '${tableExtend}' == 'tree'>ApisTree<#else>Apis</#if>Controller;
+import com.yhy.core.dto.Module;
+import com.yhy.core.service.BaseService;
+import com.yhy.${moduleId}.constants.${projectId?upper_case};
 import ${packageName}.${moduleId}.domain.${className};
 import ${packageName}.${moduleId}.service.${className}Service;
 

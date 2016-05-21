@@ -14,7 +14,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.gdm.core.constants.PROFILES;
+import com.yhy.core.constants.PROFILES;
 import ${packageName}.${moduleId}.${applicationName};
 import ${packageName}.${moduleId}.domain.${className};
 

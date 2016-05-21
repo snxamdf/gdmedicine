@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
 	<t_gen_projects id="web-medicine" code="medicine" generate="true" name="医药管理子项目" />
+	<t_gen_projects id="web-sys" code="sys" generate="true" name="系统模块" />
 </dataset>
