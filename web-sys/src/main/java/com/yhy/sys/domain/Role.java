@@ -33,5 +33,4 @@ public class Role extends Sys<String> {
 	private String name;
 	private String genre;
 	private String code;
-
 }

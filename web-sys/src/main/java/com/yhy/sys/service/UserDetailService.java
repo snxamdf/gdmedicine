@@ -17,10 +17,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.google.common.collect.Lists;
-import com.yhy.core.constants.PROFILES;
 import com.yhy.sys.domain.Users;
-import com.yhy.sys.repository.RoleRepository;
-import com.yhy.sys.repository.UserRolesRepository;
 import com.yhy.sys.repository.UsersRepository;
 
 /**
@@ -42,27 +39,20 @@ public class UserDetailService implements UserDetailsService {
 	@Autowired
 	private UsersRepository usersRepository;
 
-	@Autowired
-	private RoleRepository roleRepository;
-
-	@Autowired
-	private UserRolesRepository userRolesRepository;
-
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		boolean isBmsProfile = env.acceptsProfiles(PROFILES.BMS);
+		// boolean isBmsProfile = env.acceptsProfiles(PROFILES.BMS);
 		Users user = usersRepository.findByLoginName(username);
 		if (user == null) {
 			throw new UsernameNotFoundException(String.format("User %s does not exist!", username));
 		}
-		
-		SecureUserDetail userDetail = new SecureUserDetail(user.getId(), "001", "root", user.getLoginname(), user.getPasswd());
-		
+		List<String> userRoles = usersRepository.findPermissionsById(user.getId());
+		System.out.println(userRoles);
+		SecureUserDetail userDetail = new SecureUserDetail(user.getId(), user.getLoginname(), user.getPasswd());
+
 		List<GrantedAuthority> authorities = Lists.newArrayList();
-		if (isBmsProfile) {
-			authorities.add(new SimpleGrantedAuthority("bms:role:admin"));
-		} else {
-			authorities.add(new SimpleGrantedAuthority("web:role:admin"));
+		for (String value : userRoles) {
+			authorities.add(new SimpleGrantedAuthority(value));
 		}
 		userDetail.setAuthorities(authorities);
 		return userDetail;

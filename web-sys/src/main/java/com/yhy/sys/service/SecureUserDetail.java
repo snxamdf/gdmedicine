@@ -30,16 +30,12 @@ class SecureUserDetail implements UserDetail {
 	List<GrantedAuthority> authorities = Lists.newArrayList();
 
 	private String id = "";
-	private String code = "";
-	private String genre = "";
 	private String name = "";
 	private String passwd = "";
 
-	SecureUserDetail(String id, String code, String genre, String name, String passwd) {
+	SecureUserDetail(String id, String name, String passwd) {
 		super();
 		this.id = id;
-		this.code = code;
-		this.genre = genre;
 		this.name = name;
 		this.passwd = passwd;
 	}
@@ -56,16 +52,6 @@ class SecureUserDetail implements UserDetail {
 	@Override
 	public String getId() {
 		return this.id;
-	}
-
-	@Override
-	public String getCode() {
-		return this.code;
-	}
-
-	@Override
-	public String getGenre() {
-		return this.genre;
 	}
 
 	@Override

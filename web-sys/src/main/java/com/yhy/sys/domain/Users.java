@@ -35,5 +35,4 @@ public class Users extends Sys<String> {
 	private String uname;
 	private Integer sex;
 	private String chainid;
-
 }

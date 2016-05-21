@@ -5,6 +5,11 @@
  */
 package com.yhy.sys.repository;
 
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+
+import com.yhy.core.domain.Sys;
 import com.yhy.core.repository.BaseRepository;
 import com.yhy.sys.domain.UserRoles;
 
@@ -20,4 +25,6 @@ import com.yhy.sys.domain.UserRoles;
  */
 public interface UserRolesRepository extends BaseRepository<UserRoles, String> {
 
+	@Query("select u from UserRoles u where u.userId = ?1 and u.deletion = " + Sys.DELETION_NO)
+	List<UserRoles> findByUserId(String userId);
 }

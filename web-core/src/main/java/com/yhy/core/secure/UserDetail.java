@@ -32,30 +32,5 @@ public interface UserDetail extends UserDetails {
 	 */
 	String getId();
 
-	/**
-	 * 获取登录用户编号.
-	 * 
-	 * @return 登录用户编号
-	 * @author YHY
-	 * @version 2015-01-12
-	 * @----------------------------------------------------------------------------------------
-	 * @updated 修改描述.
-	 * @updated by YHY
-	 * @updated at 2015-01-12
-	 */
-	String getCode();
-
-	/**
-	 * 获取登录用户类型.
-	 * 
-	 * @return 登录用户类型
-	 * @author YHY
-	 * @version 2015-01-12
-	 * @----------------------------------------------------------------------------------------
-	 * @updated 修改描述.
-	 * @updated by YHY
-	 * @updated at 2015-01-12
-	 */
-	String getGenre();
 
 }
