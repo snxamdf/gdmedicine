@@ -28,9 +28,7 @@ import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuc
 public class LogoutSuccessHandler extends SimpleUrlLogoutSuccessHandler {
 
 	@Override
-	public void onLogoutSuccess(HttpServletRequest request,
-			HttpServletResponse response, Authentication authentication)
-			throws IOException, ServletException {
+	public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
 		request.getSession().removeAttribute("SPRING_SECURITY_CONTEXT");
 		super.onLogoutSuccess(request, response, authentication);
 		SecurityContextHolder.clearContext();

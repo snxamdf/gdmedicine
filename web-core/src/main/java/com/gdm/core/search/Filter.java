@@ -33,21 +33,10 @@ public class Filter {
 	private static final String NULL = "_filter_nil_"; // 默认零值
 
 	/**
-	 * EQ : equal( = )
-	 * NE : not equal( <> )
-	 * GT : greater than( > )
-	 * LT : less than( < )
-	 * GE : greater than or equal( >= )
-	 * LE : less than or equal( <= )
-	 * LI : like '?'
-	 * LK : like '%?%'
-	 * LL : like '%?'
-	 * LR : like '?%'
-	 * BE : between 'a,b'
-	 * IN : in 'a,b,c,d'
-	 * NU : is null
-	 * NN : is not null
-	 * AC : asc(order by)
+	 * EQ : equal( = ) NE : not equal( <> ) GT : greater than( > ) LT : less
+	 * than( < ) GE : greater than or equal( >= ) LE : less than or equal( <= )
+	 * LI : like '?' LK : like '%?%' LL : like '%?' LR : like '?%' BE : between
+	 * 'a,b' IN : in 'a,b,c,d' NU : is null NN : is not null AC : asc(order by)
 	 * DC : desc(order by)
 	 */
 	public enum Operator {
@@ -59,11 +48,7 @@ public class Filter {
 	public Operator operator;
 
 	/**
-	 * 只用于
-	 * NU : is null
-	 * NN : is not null
-	 * AC : asc(order by)
-	 * DC : desc(order by)
+	 * 只用于 NU : is null NN : is not null AC : asc(order by) DC : desc(order by)
 	 * 
 	 * @param fieldName
 	 * @param operator

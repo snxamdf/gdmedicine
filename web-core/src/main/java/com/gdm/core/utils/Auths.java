@@ -33,8 +33,7 @@ import com.gdm.core.secure.UserDetail;
 public abstract class Auths {
 
 	/**
-	 * 获取当前登录用户信息.
-	 * 没有登录返回null.
+	 * 获取当前登录用户信息. 没有登录返回null.
 	 * 
 	 * @return 当前登录用户信息
 	 * @author YHY
@@ -107,10 +106,10 @@ public abstract class Auths {
 	}
 
 	/**
-	 * 判断当前登录人员是否有某个操作权限.
-	 * boolean isPermit = Auths.hasRole("sys:area:view");
+	 * 判断当前登录人员是否有某个操作权限. boolean isPermit = Auths.hasRole("sys:area:view");
 	 * 
-	 * @param authority 操作权限标识
+	 * @param authority
+	 *            操作权限标识
 	 * @return
 	 * @author YHY
 	 * @version 2015-03-05

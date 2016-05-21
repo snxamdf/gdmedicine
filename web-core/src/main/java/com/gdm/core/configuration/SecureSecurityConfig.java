@@ -52,11 +52,9 @@ class SecureSecurityConfig extends WebSecurityConfigurerAdapter {
 	private CsrfMatcher csrfRequestMatcher = new CsrfMatcher();
 
 	@Autowired
-	protected void configureGlobal(AuthenticationManagerBuilder auth)
-			throws Exception {
+	protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-		authenticationProvider.setPasswordEncoder(Passwords
-				.getPasswordEncoder());
+		authenticationProvider.setPasswordEncoder(Passwords.getPasswordEncoder());
 		authenticationProvider.setUserDetailsService(userDetailsService);
 		auth.authenticationProvider(authenticationProvider);
 	}
@@ -68,37 +66,31 @@ class SecureSecurityConfig extends WebSecurityConfigurerAdapter {
 		// 关闭X-Frame-Options：DENY
 		http.headers().frameOptions().disable();
 		// 静态文件不需要权限控制
-		http.authorizeRequests()
-				.antMatchers("/dologin", "/relogin", "/servlet/**", "/error",
-						"/500", "/404").permitAll();
-		http.authorizeRequests()
-				.antMatchers("/**/*.css", "/**/*.js", "/**/*.jpg", "/**/*.png",
-						"/**/*.gif").permitAll();
-		http.authorizeRequests()
-				.antMatchers("/**/*.svg", "/**/*.eot", "/**/*.otf",
-						"/**/*.ttf", "/**/*.woff").permitAll();
+		http.authorizeRequests().antMatchers("/dologin", "/relogin", "/servlet/**", "/error", "/500", "/404").permitAll();
+		http.authorizeRequests().antMatchers("/**/*.css", "/**/*.js", "/**/*.jpg", "/**/*.png", "/**/*.gif").permitAll();
+		http.authorizeRequests().antMatchers("/**/*.svg", "/**/*.eot", "/**/*.otf", "/**/*.ttf", "/**/*.woff").permitAll();
+		http.authorizeRequests().antMatchers("/", "/login", "/index").permitAll();
 		boolean isWebProfile = env.acceptsProfiles(PROFILES.WEB);
-		// 配置哪些url可以不登录访问
+
 		if (isWebProfile) {
-			http.authorizeRequests().antMatchers("/*", "/", "/**").permitAll();
+			http.authorizeRequests().antMatchers("/", "/login", "/index").permitAll();
+			// http.authorizeRequests().antMatchers("/*", "/",
+			// "/**").permitAll();
 		}
+
 		// 单元测试环境：所有url都有权限可以访问
 		boolean isJunitProfile = env.acceptsProfiles(PROFILES.JUNIT);
 		if (!isJunitProfile) {
 			http.authorizeRequests().anyRequest().fullyAuthenticated();
 		}
+
 		boolean isBmsProfile = env.acceptsProfiles(PROFILES.BMS);
 		String path = CTL.WEB_PATH;
 		if (isBmsProfile) {
 			path = CTL.BMS_PATH;
 		}
-		http.formLogin().successHandler(new LoginSuccessHandler())
-				.loginPage(path + "/login").failureUrl(path + "/login?error")
-				.permitAll();
-		http.logout()
-				.logoutRequestMatcher(
-						new AntPathRequestMatcher(path + "/logout"))
-				.logoutSuccessHandler(new LogoutSuccessHandler());
+		http.formLogin().successHandler(new LoginSuccessHandler()).loginPage(path + "/login").failureUrl(path + "/login?error").permitAll();
+		http.logout().logoutRequestMatcher(new AntPathRequestMatcher(path + "/logout")).logoutSuccessHandler(new LogoutSuccessHandler());
 		http.exceptionHandling().accessDeniedPage(path + "/access?error");
 	}
 

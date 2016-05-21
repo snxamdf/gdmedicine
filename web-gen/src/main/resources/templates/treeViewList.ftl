@@ -5,26 +5,6 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <meta charset="utf-8" th:substituteby="core/layout/include/bms.head" />
-<link th:if="false" rel="stylesheet" href="../../../../../../web-core/src/main/resources/static/core/semantic/1.10.4/semantic.min.css" />
-<link th:if="false" rel="stylesheet" href="../../../../../../web-core/src/main/resources/static/core/jquery-ui/1.11.2/css/jquery-ui.min.css" />
-<link th:if="false" rel="stylesheet" href="../../../../../../web-core/src/main/resources/static/core/jquery-ui/1.11.2/css/jquery-ui.structure.min.css" />
-<link th:if="false" rel="stylesheet" href="../../../../../../web-core/src/main/resources/static/core/jquery-ui/1.11.2/css/jquery-ui.theme.min.css" />
-<link th:if="false" rel="stylesheet" href="../../../../../../web-core/src/main/resources/static/core/jquery-ui-timepicker/1.5.0/css/jquery-ui-timepicker-addon.css" />
-<link th:if="false" rel="stylesheet" href="../../../../../../web-core/src/main/resources/static/core/jquery-ztree/3.5.17/css/zTreeStyle.css" />
-<link th:if="false" rel="stylesheet" href="../../../../../../web-core/src/main/resources/static/core/jquery-qtip/2.2.1/css/jquery.qtip.min.css" />
-<link th:if="false" rel="stylesheet" href="../../../../../../web-core/src/main/resources/static/core/common/css/common.css" />
-<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/jquery/1.11.2/js/jquery.min.js"></script>
-<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/semantic/1.10.4/semantic.min.js"></script>
-<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/jquery-ui/1.11.2/js/jquery-ui.min.js"></script>
-<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/jquery-ui/1.11.2/js/datepicker-zh-CN.js"></script>
-<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/jquery-ui-timepicker/1.5.0/js/jquery-ui-timepicker-addon.min.js"></script>
-<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/jquery-ui-timepicker/1.5.0/js/jquery-ui-timepicker-zh-CN.js"></script>
-<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/jquery-ztree/3.5.17/js/jquery.ztree.all.min.js"></script>
-<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/jquery-validation/1.13.1/jquery.validate.min.js"></script>
-<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/jquery-validation/1.13.1/jquery.validate.defaults.js"></script>
-<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/jquery-validation/1.13.1/jquery.validate.methods.js"></script>
-<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/jquery-validation/1.13.1/messages_zh.min.js"></script>
-<script th:if="false" src="../../../../../../web-core/src/main/resources/static/core/jquery-qtip/2.2.1/js/jquery.qtip.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 	});
@@ -54,50 +34,27 @@
 </script>
 </head>
 <body id="main">
-	<div class="header">
-		<div class="ui fixed menu inverted navbar">
-			<a class="item" href="/">
-				<div th:if="false" class="dn"></div> <i class="home icon"></i> 爱社员后台
-			</a>
-			<div th:if="false" class="dn"></div>
-			<a class="item" href="#">
-				<div th:if="false" class="dn"></div> <i class="settings icon"></i> 系统管理
-			</a>
-			<div class="right menu">
-				<div class="ui pointing dropdown item user">
-					<span>您好，管理员</span> <i class="dropdown icon"></i>
-					<div class="menu">
-						<a class="item"><i class="edit icon"></i>个人信息</a>
-						<div th:if="false" class="dn"></div>
-						<a class="item"><i class="privacy icon"></i>修改密码</a>
-					</div>
-				</div>
-				<a class="item" href="/login?logout">
-					<div th:if="false" class="dn"></div> <i class="sign out icon"></i> 退出
-				</a>
-			</div>
-		</div>
-	</div>
+	
 	<div class="content" layout:fragment="content">
 		<div class="ui tabular menu">
 			<a class="active item">${tableName}列表</a>
-			<div th:if="false" class="dn"></div>
+			
 			<a class="item" sec:authorize="hasAuthority('${tablePermit}:add')" href="bms.${viewName}.form.html" th:href="@{|javascript:action('add')|}">${tableName}创建</a>
 		</div>
 		<form id="searchForm" class="ui form small message" th:action="@{${'$'}{#ctl.path}+'/${tableUrl}/list'}" action="#" method="post">
 			<div>
 				<input id="id" name="id" type="hidden" />
-				<div th:if="false" class="dn"></div>
+				
 				<input id="pageNo" name="pageNo" type="hidden" th:value="${'$'}{page.number + 1}" />
-				<div th:if="false" class="dn"></div>
+				
 				<input id="pageSize" name="pageSize" type="hidden" th:value="${'$'}{page.size}" />
-				<div th:if="false" class="dn"></div>
+				
 				<input id="search_EQ_parentId" name="search_EQ_parentId" type="hidden" th:value="${'$'}{search_EQ_parentId == null ? 'root' : search_EQ_parentId}" />
 			</div>
 			<div class="fields">
 				<div class="inline field">
 					<label>名称</label>
-					<div th:if="false" class="dn"></div>
+					
 					<input type="text" id="search_LK_name" name="search_LK_name" th:value="${'$'}{search_LK_name}" />
 				</div>
 				<div class="field">
@@ -153,8 +110,8 @@
 					<td th:text="${'$'}{domain.created==null?'':#dates.format(domain.created,'yyyy-MM-dd HH:mm:ss')}">2014-07-16 17:56:12</td>
 					<td th:text="${'$'}{domain.modified==null?'':#dates.format(domain.modified,'yyyy-MM-dd HH:mm:ss')}">2014-07-18 17:58:16</td>
 					<td>
-						<div th:if="false" class="dn"></div> <a sec:authorize="hasAuthority('${tablePermit}:edit')" href="#" th:href="@{|javascript:action('edit','${'$'}{domain.id}')|}">修改</a>
-						<div th:if="false" class="dn"></div> <a sec:authorize="hasAuthority('${tablePermit}:disable')" href="#" th:href="@{|javascript:deletion('${'$'}{domain.id}')|}">删除</a>
+						 <a sec:authorize="hasAuthority('${tablePermit}:edit')" href="#" th:href="@{|javascript:action('edit','${'$'}{domain.id}')|}">修改</a>
+						 <a sec:authorize="hasAuthority('${tablePermit}:disable')" href="#" th:href="@{|javascript:deletion('${'$'}{domain.id}')|}">删除</a>
 					</td>
 				</tr>
 				<tr th:if="${'$'}{page.content.empty}">
@@ -192,7 +149,7 @@
 		<div class="ui divider"></div>
 		<div class="item">
 			Copyright &copy; 2009-2015 <a href="http://github.com/snxamdf" target="_blank">hongyanyang</a>
-			<div th:if="false" class="dn"></div>
+			
 			- Powered By <a href="http://github.com/snxamdf" target="_blank">SXM V2.0</a>
 		</div>
 	</div>

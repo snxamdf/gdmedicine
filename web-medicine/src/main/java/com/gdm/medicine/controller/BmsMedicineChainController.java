@@ -32,7 +32,7 @@ import com.gdm.medicine.service.MedicineChainService;
  */
 @BmsEnv
 @Controller
-@RequestMapping(value = CTL.BMS_PATH + "/medicine/chain")
+@RequestMapping(value = CTL.WEB_PATH + "/medicine/chain")
 public class BmsMedicineChainController extends BaseController<MedicineChain, String> {
 
 	@SuppressWarnings("unused")
@@ -48,7 +48,7 @@ public class BmsMedicineChainController extends BaseController<MedicineChain, St
 
 	@Override
 	public Module<MedicineChain> getModule() {
-		return new Module<MedicineChain>(MEDICINE.PROJECT, "medicine.chain", CTL.BMS, MedicineChain.class);
+		return new Module<MedicineChain>(MEDICINE.PROJECT, "medicine.chain", CTL.WEB, MedicineChain.class);
 	}
 
 }

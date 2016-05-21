@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN" layout:decorator="core/layout/bms.anon" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head layout:fragment="head">
+<!--[if lt IE 10]>
+<div style="display: block; width: 930px; margin: 5px auto; border: 1px solid #ea1111; padding: 4px 20px 4px 10px; color: #ea1111; background: #ffefef; position: relative; font-size: 12px; line-height: 18px;">
+	<div style="position: absolute; left: 0px; color: #fff; background: #ea1111; text-align: center; top: 0px; height: 26px; line-height: 26px; font-size: 14px; width: 70px;">提醒</div>
+	<span style="padding-left: 80px;" id="msgbox_span">您现在使用的浏览器版本过低，请使用IE10+或火狐或谷歌浏览器!</span>
+</div>
+<![endif]-->
+<title>登录</title>
+<meta name="description" content="" />
+<meta name="author" content="" />
+<meta charset="utf-8" th:substituteby="core/layout/include/bms.head" />
+<script type="text/javascript">
+	$(document).ready(function() {
+	});
+</script>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="ui grid">
+			<div class="two wide mobile five wide tablet six wide computer column"></div>
+			<div class="twelve wide mobile six wide tablet four wide computer column">
+				<form th:action="@{${#ctl.path}+'/dologin'}" method="post" class="ui error form ">
+					<h4 class="ui block top attached header">医药连锁店后台管理系统</h4>
+					<div class="ui attached segment">
+						<p class="ui error message" th:if="${usernameErr != null}" th:text="${usernameErr}">无效的用户名或密码!</p>
+						<div class="field">
+							<label>登录名</label>
+							<div class="ui icon input">
+								<input class="required" type="text" name="username" /> <i class="user icon"></i>
+							</div>
+						</div>
+						<div class="field">
+							<label>密码</label>
+							<div class="ui icon input">
+								<input class="required" type="password" name="password" /> <i class="lock icon"></i>
+							</div>
+						</div>
+						<div class="field"></div>
+						<div class="ui buttons">
+							<input class="ui positive button" type="submit" value="登录" />
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="two wide mobile five wide tablet six wide computer column"></div>
+		</div>
+		<div class="ui center aligned basic segment">
+			<p>本系统为内部工作人员使用，如需开通账户请联系</p>
+		</div>
+	</div>
+</body>
+</html>

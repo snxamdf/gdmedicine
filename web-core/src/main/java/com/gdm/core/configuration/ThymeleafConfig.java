@@ -32,8 +32,7 @@ import com.gdm.core.thymeleaf.VerDialect;
 class ThymeleafConfig {
 
 	@Autowired
-	private Collection<ITemplateResolver> templateResolvers = Collections
-			.emptySet();
+	private Collection<ITemplateResolver> templateResolvers = Collections.emptySet();
 
 	@Autowired(required = false)
 	private Collection<IDialect> dialects = Collections.emptySet();

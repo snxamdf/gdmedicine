@@ -26,7 +26,8 @@ public class EnvCondition implements Condition {
 	/**
 	 * 根据bms|web|webapp|apis环境的不同注入不同的bean
 	 * 
-	 * @see org.springframework.context.annotation.Condition#matches(org.springframework.context.annotation.ConditionContext, org.springframework.core.type.AnnotatedTypeMetadata)
+	 * @see org.springframework.context.annotation.Condition#matches(org.springframework.context.annotation.ConditionContext,
+	 *      org.springframework.core.type.AnnotatedTypeMetadata)
 	 */
 	@Override
 	public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {

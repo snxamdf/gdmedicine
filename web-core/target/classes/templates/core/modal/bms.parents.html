@@ -2,7 +2,7 @@
 <div class="ui small message">
 	<div class="ui breadcrumb">
 		<span th:each="p, parent : ${parents}">
-			<div th:if="false" class="dn"></div> <a class="section" th:if="${parent.last == false}" th:text="${parent.current.name}" th:href="@{|javascript:action('list','${parent.current.id}')|}">root</a>
+			 <a class="section" th:if="${parent.last == false}" th:text="${parent.current.name}" th:href="@{|javascript:action('list','${parent.current.id}')|}">root</a>
 			<div class="divider" th:if="${parent.last == false}">/</div>
 			<div class="active divider" th:if="${parent.last == true}" th:text="${parent.current.name}">active</div>
 		</span>

@@ -33,9 +33,9 @@ class AssetsConfig extends WebMvcConfigurerAdapter {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		boolean isDevProfile = env.acceptsProfiles(PROFILES.DEV);
 		if (isDevProfile) {
-			registry.addResourceHandler("/assets/isydev/**").addResourceLocations("file:/upload/isydev/");
-			registry.addResourceHandler("/assets/isyopr/**").addResourceLocations("file:/upload/operate/");
-			registry.addResourceHandler("/assets/isyupl/**").addResourceLocations("file:/upload/archive/");
+			registry.addResourceHandler("/assets/dev/**").addResourceLocations("file:/upload/dev/");
+			registry.addResourceHandler("/assets/opr/**").addResourceLocations("file:/upload/operate/");
+			registry.addResourceHandler("/assets/upl/**").addResourceLocations("file:/upload/archive/");
 		}
 	}
 

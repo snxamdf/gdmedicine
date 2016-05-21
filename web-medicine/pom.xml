@@ -16,7 +16,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.gdm</groupId>
-			<artifactId>web-core</artifactId>
+			<artifactId>web-sys</artifactId>
 			<version>1.0.0</version>
 		</dependency>
 		<!-- test -->

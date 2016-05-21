@@ -25,9 +25,7 @@ import org.apache.commons.lang3.math.NumberUtils;
 import com.gdm.core.utils.Strings;
 
 /**
- * 生成随机验证码.
- * 随机验证码存储在当前Session中.
- * 当前Session只能有一个有效的随机验证码.
+ * 生成随机验证码. 随机验证码存储在当前Session中. 当前Session只能有一个有效的随机验证码.
  * 
  * @author YHY
  * @version 2015-01-14
@@ -40,9 +38,7 @@ import com.gdm.core.utils.Strings;
 public class ValidcodeServlet extends HttpServlet {
 
 	/**
-	 * 性能测试专用：是否进行图片验证码验证
-	 * true：验证并返回正确结果
-	 * false：不验证始终返回验证成功
+	 * 性能测试专用：是否进行图片验证码验证 true：验证并返回正确结果 false：不验证始终返回验证成功
 	 */
 	private final static boolean IS_VALIDATE_CODE = true;
 
@@ -68,7 +64,8 @@ public class ValidcodeServlet extends HttpServlet {
 	 * 验证随机验证码是否有效.
 	 * 
 	 * @param request
-	 * @param validateCode 被验证的随机验证码
+	 * @param validateCode
+	 *            被验证的随机验证码
 	 * @return
 	 * @author YHY
 	 * @version 2015-01-14
@@ -237,7 +234,9 @@ public class ValidcodeServlet extends HttpServlet {
 	 * @updated at 2015-01-14
 	 */
 	private String createCharacter(Graphics g) {
-		// char[] codeSeq = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+		// char[] codeSeq = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+		// 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y',
+		// 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 		char[] codeSeq = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 		String[] fontTypes = { "\u5b8b\u4f53", "\u65b0\u5b8b\u4f53", "\u9ed1\u4f53", "\u6977\u4f53", "\u96b6\u4e66" };
 		Random random = new Random();

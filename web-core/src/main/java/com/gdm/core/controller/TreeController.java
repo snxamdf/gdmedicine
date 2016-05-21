@@ -83,7 +83,8 @@ public abstract class TreeController<T extends Tree<ID>, ID extends Serializable
 	/**
 	 * 获取树json数据.
 	 * 
-	 * @param exclusionId 排除掉的ID
+	 * @param exclusionId
+	 *            排除掉的ID
 	 * @param request
 	 * @param response
 	 * @return
@@ -146,7 +147,8 @@ public abstract class TreeController<T extends Tree<ID>, ID extends Serializable
 	 * 判断是否是需要排除掉的记录.
 	 * 
 	 * @param tree
-	 * @param exclusionId 排除掉的ID
+	 * @param exclusionId
+	 *            排除掉的ID
 	 * @return
 	 * @author YHY
 	 * @version 2014-08-27

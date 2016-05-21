@@ -9,4 +9,5 @@
 	<!-- 表module_id值规则（支持多模块） ：对应模块id + "," -->
 	<!-- 表extend值规则 ：sys(cdm中继承bmain)或tree(cdm中继承btree) -->
 	<t_gen_tables id="medicine01001" code="t_medicine_chain" generate="true" menu="true" name="医药管理表" comments="医药管理表" extend="sys" module_id="medicine01," />
+	<t_gen_tables id="medicine01002" code="t_users" generate="true" menu="true" name="用户表" comments="用户表" extend="sys" module_id="medicine01," />
 </dataset>

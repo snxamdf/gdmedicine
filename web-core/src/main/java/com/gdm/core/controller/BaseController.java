@@ -107,7 +107,8 @@ public abstract class BaseController<T extends Sys<ID>, ID extends Serializable>
 	}
 
 	/**
-	 * 所有RequestMapping方法调用前的Model准备方法,先根据form的id从数据库查出Area对象,再把Form提交的内容绑定到该对象上。
+	 * 所有RequestMapping方法调用前的Model准备方法,先根据form的id从数据库查出Area对象,再把Form提交的内容绑定到该对象上
+	 * 。
 	 */
 	@ModelAttribute
 	public void get(ID id, HttpServletRequest request, Model model, RedirectAttributes redirect) {

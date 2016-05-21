@@ -1,6 +1,6 @@
 <header>
 	<div id="header" class="cl">
-		<h1><a href="#" th:href="@{${#ctl.path}+'/'}">爱社员-农民专业合作社信息管理系统</a></h1>
+		<h1><a href="#" th:href="@{${#ctl.path}+'/'}">WEB-MVN-FRAME</a></h1>
 		<ul class="op cl">
 			<li class="drop"><span class="icon icon1 fixpng" th:text="${#authentication.name}">张三齐</span><i class="arrow fixpng"></i>
 				<div class="subNav">
@@ -15,7 +15,7 @@
 					</p>
 				</div></li>
 			<li class="drop" sec:authorize="hasAnyAuthority('vchr:word:edit','web:role:admin','subj:subject:edit','subj:balance:edit')">
-				<div class="dn" th:if="false"></div> <span class="icon icon2 fixpng">系统设置</span><i class="arrow fixpng"></i>
+				< <span class="icon icon2 fixpng">系统设置</span><i class="arrow fixpng"></i>
 				<div class="subNav">
 					<p class="icon icon21 fixpng">
 						<a href="#" th:href="@{${#ctl.path} +'/vchr/word/findAll'}" sec:authorize="hasAuthority('vchr:word:edit')">财务设置</a>

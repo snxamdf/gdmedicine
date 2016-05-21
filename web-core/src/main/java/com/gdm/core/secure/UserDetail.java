@@ -58,5 +58,4 @@ public interface UserDetail extends UserDetails {
 	 */
 	String getGenre();
 
-
 }

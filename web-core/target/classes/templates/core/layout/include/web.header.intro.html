@@ -6,9 +6,9 @@
 		<!--logo_end-->
 		<div class="sign r">
 			<a href="#" th:href="@{${#ctl.path}+'/'}" >首页</a>
-			<div th:if="false" class="dn"></div>
+			
 			<a href="#" th:class="${type=='index'?'blue_select':''}"  th:href="@{${#ctl.path+'/cms/intro/index/show'}}">系统介绍</a>
-			<div th:if="false" class="dn"></div>
+			
 			<a href="#" th:class="${type=='help'?'blue_select':''}" th:href="@{${#ctl.path+'/cms/help/center/show'}}">操作指南</a>
 		</div>
 		<!--sign_end-->

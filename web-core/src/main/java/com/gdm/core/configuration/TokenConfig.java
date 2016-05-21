@@ -36,8 +36,7 @@ class TokenConfig extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(tokenInterceptor).excludePathPatterns(
-				"/**/*.css", "/**/*.js", "/**/*.jpg", "/**/*.png", "/**/*.gif");
+		registry.addInterceptor(tokenInterceptor).excludePathPatterns("/**/*.css", "/**/*.js", "/**/*.jpg", "/**/*.png", "/**/*.gif");
 	}
 
 }

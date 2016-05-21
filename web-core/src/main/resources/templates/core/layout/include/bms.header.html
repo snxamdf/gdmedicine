@@ -1,50 +1,74 @@
 
 <div class="ui fixed menu inverted navbar">
 	<a class="item" th:href="@{/}" href="/">
-		<div th:if="false" class="dn"></div> <i class="home icon"></i><span class="ui grid fr"><span class="computer only column">医药连锁后台</span></span>
+		<i class="home icon"></i>
+		<span class="ui grid fr">
+			<span class="computer only column">医药连锁后台</span>
+		</span>
 	</a>
-	<div th:if="false" class="dn"></div>
-	<a class="item" href="javascript:openMbrSidebar();">
-		<div th:if="false" class="dn"></div> <i class="users icon"></i><span class="ui grid fr"><span class="tablet computer only column">药品管理</span></span>
+	<a class="item" href="javascript:openYpmSidebar();">
+		<i class="users icon"></i>
+		<span class="ui grid fr">
+			<span class="tablet computer only column">药品管理</span>
+		</span>
+	</a>
+	<a sec:authorize="hasAuthority('bms:role:admin')" class="item" href="javascript:openUsmSidebar();">
+		<i class="users icon"></i>
+		<span class="ui grid fr">
+			<span class="tablet computer only column">用户管理</span>
+		</span>
 	</a>
 	<div class="right menu">
 		<div class="ui pointing dropdown item user">
-			<span class="ui grid fl"><span class="tablet computer only column" th:text="${'您好，' + #strings.abbreviate(#authentication.name,10)}">您好，管理员</span></span> <i class="dropdown icon"></i>
+			<span class="ui grid fl">
+				<span class="tablet computer only column" th:text="${'您好，' + #strings.abbreviate(#authentication.name,10)}">您好，管理员</span>
+			</span>
+			<i class="dropdown icon"></i>
 			<div class="menu">
-				<a class="item" th:href="@{/}"><i class="edit icon"></i>个人信息</a>
-				<div th:if="false" class="dn"></div>
-				<a class="item" th:href="@{${#ctl.path}+'/sys/user/to/repasswd'}"><i class="privacy icon"></i>修改密码</a>
+				<a class="item" th:href="@{/}">
+					<i class="edit icon"></i>
+					个人信息
+				</a>
+				<a class="item" th:href="@{${#ctl.path}+'/sys/user/to/repasswd'}">
+					<i class="privacy icon"></i>
+					修改密码
+				</a>
 			</div>
 		</div>
 		<a class="item" th:href="@{${#ctl.path}+'/logout'}" href="/logout">
-			<div th:if="false" class="dn"></div> <i class="sign out icon"></i><span class="ui grid fr"><span class="tablet computer only column">退出</span></span>
+			<i class="sign out icon"></i>
+			<span class="ui grid fr">
+				<span class="tablet computer only column">退出</span>
+			</span>
 		</a>
 	</div>
 </div>
-<div class="ui red vertical mbr sidebar menu">
+<div id="ypm" class="ui red vertical sidebar menu">
 	<div class="header item">
-		<i class="sitemap icon"></i> 药品管理
+		<i class="sitemap icon"></i>
+		药品管理
 	</div>
 	<div class="menu">
-		<a class="item" th:href="@{${#ctl.path}+'/agcy/affix/list'}" href="../agency/bms.agcy.affix.list.html"> 机构管理 </a>
-		<div th:if="false" class="dn"></div>
-		<a class="item" th:href="@{${#ctl.path}+'/agcy/detail/list'}" href="../agency/bms.agcy.detail.list.html"> 机构信息明细 </a>
+		<a class="item" th:href="@{${#ctl.path}+'/medicine/chain/list'}" href="../agency/bms.agcy.affix.list.html"> 药品列表</a>
+	</div>
+</div>
+<div id="usm" class="ui red vertical sidebar menu">
+	<div class="header item">
+		<i class="sitemap icon"></i>
+		用户管理
+	</div>
+	<div class="menu">
+		<a class="item" th:href="@{${#ctl.path}+'/medicine/users/list'}" href="../agency/bms.agcy.affix.list.html"> 用户列表 </a>
 	</div>
 </div>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('.ui.pointing.dropdown.item.user').dropdown();
 	});
-	function openMbrSidebar() {
-		$('.mbr.sidebar').sidebar('toggle');
+	function openYpmSidebar() {
+		$('#ypm').sidebar('toggle');
 	}
-	function openPinSidebar() {
-		$('.pin.sidebar').sidebar('toggle');
-	}
-	function openSysSidebar() {
-		$('.sys.sidebar').sidebar('toggle');
-	}
-	function openCmsSidebar() {
-		$('.cms.sidebar').sidebar('toggle');
+	function openUsmSidebar() {
+		$('#usm').sidebar('toggle');
 	}
 </script>

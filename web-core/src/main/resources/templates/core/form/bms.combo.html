@@ -1,7 +1,6 @@
 <!-- 用法：bms.combo.readme -->
 <div th:class="${'ui selection dropdown ' + (#bools.isTrue(searched)?'search ':'') + id}">
 	<input type="hidden" th:id="${id}" th:name="${name == null ? id : name}" th:value="${val}" />
-	<div th:if="false" class="dn"></div>
 	<input type="hidden" th:id="${id + '_id'}" th:name="${id}" th:if="${name != null and id != name ? true : false}" />
 	<div class="text" th:id="${id + '_text'}">请选择</div>
 	<i class="dropdown icon"></i>

@@ -32,5 +32,6 @@ public class MedicineChain_ {
 	public static volatile SingularAttribute<MedicineChain, Integer> version;
 	public static volatile SingularAttribute<MedicineChain, Integer> deletion;
 	public static volatile SingularAttribute<MedicineChain, Integer> history;
+	public static volatile SingularAttribute<MedicineChain, String> memo;
 
 }
