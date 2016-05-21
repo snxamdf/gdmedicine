@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+	<!-- 模块id值规则：books + 两位序列号 -->
+	<!-- 模块project_id值规则（支持多项目） ：对应项目id + "," -->
+	<t_gen_modules id="books01" code="books" generate="true" name="账套模块" author="zhangchengying" project_id="isy-books,"/>
+	
+	
+	<!-- 表id值规则：对应模块id + 三位序列号 -->
+	<!-- 表module_id值规则（支持多模块） ：对应模块id + "," -->
+	<!-- 表extend值规则 ：sys(cdm中继承bmain)或tree(cdm中继承btree) -->
+	<t_gen_tables id="books01001" code="t_sob_books" generate="true" menu="true" name="帐套表" comments="帐套表" extend="sys" module_id="books01,"/>
+	<t_gen_tables id="books01002" code="t_sob_period" generate="true" menu="true" name="会计期间表" comments="会计期间表" extend="sys" module_id="books01,"/>
+</dataset>

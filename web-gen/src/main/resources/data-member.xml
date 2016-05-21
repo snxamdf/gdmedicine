@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+	<!-- 模块id值规则：member + 两位序列号 -->
+	<!-- 模块project_id值规则（支持多项目） ：对应项目id + "," -->
+	<t_gen_modules id="member01" code="member" generate="true" name="社员模块" author="zengjunhong" project_id="isy-member,"/>
+	
+	
+	<!-- 表id值规则：对应模块id + 三位序列号 -->
+	<!-- 表module_id值规则（支持多模块） ：对应模块id + "," -->
+	<!-- 表extend值规则 ：sys(cdm中继承bmain)或tree(cdm中继承btree) -->
+	<t_gen_tables id="member01001" code="t_mbr_member" generate="true" menu="true" name="社员信息表" comments="社员信息表" extend="sys" module_id="member01,"/>
+	<t_gen_tables id="member01002" code="t_mbr_family" generate="true" menu="true" name="社员家庭成员表" comments="社员家庭成员表" extend="sys" module_id="member01,"/>
+	<t_gen_tables id="member01003" code="v_mbr_member_search" generate="true" menu="true" name="社员条件查询视图" comments="社员条件查询视图" extend="sys" module_id="member01,"/>
+	<t_gen_tables id="member01004" code="v_mbr_family_search" generate="true" menu="true" name="社员家庭成员查询视图" comments="社员家庭成员查询视图" extend="sys" module_id="member01,"/>
+</dataset>

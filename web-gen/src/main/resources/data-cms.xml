@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+	<!-- 模块id值规则：cms + 两位序列号 -->
+	<!-- 模块project_id值规则（支持多项目） ：对应项目id + "," -->
+	<t_gen_modules id="cms01" code="cms" generate="true" name="内容管理模块" author="yanghongyan" project_id="isy-cms,"/>
+	
+	
+	<!-- 表id值规则：对应模块id + 三位序列号 -->
+	<!-- 表module_id值规则（支持多模块） ：对应模块id + "," -->
+	<!-- 表extend值规则 ：sys(cdm中继承bmain)或tree(cdm中继承btree) -->
+	<t_gen_tables id="cms01001" code="t_cms_affiche" generate="true" menu="true" name="公告表" comments="公告表" extend="sys" module_id="cms01,"/>
+	<t_gen_tables id="cms01002" code="t_cms_example" generate="true" menu="true" name="案例表" comments="案例表" extend="sys" module_id="cms01,"/>
+	<t_gen_tables id="cms01003" code="t_cms_financial" generate="true" menu="true" name="金融表" comments="金融表" extend="sys" module_id="cms01,"/>
+	<t_gen_tables id="cms01004" code="t_cms_news" generate="true" menu="true" name="资讯表" comments="资讯表" extend="sys" module_id="cms01,"/>
+	<t_gen_tables id="cms01005" code="t_cms_market" generate="true" menu="true" name="宜农市集" comments="宜农市集" extend="sys" module_id="cms01,"/>
+	<t_gen_tables id="cms01006" code="t_cms_help_center" generate="true" menu="true" name="帮助中心" comments="帮助中心" extend="sys" module_id="cms01,"/>
+	<t_gen_tables id="cms01007" code="t_cms_faq" generate="true" menu="true" name="常见问题" comments="常见问题" extend="sys" module_id="cms01,"/>
+</dataset>

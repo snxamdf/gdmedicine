@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/2002/xmlspec/dtd/2.10/xmlspec.dtd">
+<dataset>
+	<!-- 模块id值规则：voucher + 两位序列号 -->
+	<!-- 模块project_id值规则（支持多项目） ：对应项目id + "," -->
+	<t_gen_modules id="voucher01" code="voucher" generate="true" name="凭证模块" author="songxinyue" project_id="isy-voucher," />
+
+
+	<!-- 表id值规则：对应模块id + 三位序列号 -->
+	<!-- 表module_id值规则（支持多模块） ：对应模块id + "," -->
+	<!-- 表extend值规则 ：sys(cdm中继承bmain)或tree(cdm中继承btree) -->
+	<t_gen_tables id="voucher01001" code="t_vchr_word" generate="false" menu="false" name="凭证字表" comments="凭证字表" extend="sys" module_id="voucher01," />
+	<t_gen_tables id="voucher01002" code="t_vchr_digest" generate="false" menu="false" name="凭证摘要表" comments="凭证摘要表" extend="sys" module_id="voucher01," />
+	<t_gen_tables id="voucher01003" code="t_vchr_voucher" generate="false" menu="false" name="凭证表" comments="凭证表" extend="sys" module_id="voucher01," />
+	<t_gen_tables id="voucher01004" code="t_vchr_entry" generate="false" menu="false" name="凭证分录表" comments="凭证分录表" extend="sys" module_id="voucher01," />
+	<t_gen_tables id="voucher01005" code="t_vchr_template_type" generate="false" menu="false" name="凭证模版类型表" comments="凭证模版类型表" extend="sys" module_id="voucher01," />
+	<t_gen_tables id="voucher01006" code="t_vchr_template" generate="false" menu="false" name="凭证模版表" comments="凭证模版表" extend="sys" module_id="voucher01," />
+	<t_gen_tables id="voucher01007" code="t_vchr_template_entry" generate="false" menu="false" name="凭证模版分录表" comments="凭证模版分录表" extend="sys" module_id="voucher01," />
+	<t_gen_tables id="voucher01008" code="v_vchr_voucher_batch" generate="false" menu="false" name="凭证批量操作Dto" comments="凭证批量操作Dto" extend="sys" module_id="voucher01," />
+
+	<t_gen_tables id="voucher01009" code="t_vchr_voucher_aud" generate="false" menu="false" name="凭证历史表" comments="凭证历史表" extend="sys" module_id="voucher01," />
+	<t_gen_tables id="voucher01010" code="t_vchr_entry_aud" generate="true" menu="false" name="凭证分录历史表" comments="凭证分录历史表" extend="sys" module_id="voucher01," />
+</dataset>

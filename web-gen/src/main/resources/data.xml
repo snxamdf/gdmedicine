@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+	<!-- 子项目信息：这个文件修改了请不要提交 -->
+	<t_gen_projects id="isy-sys" code="sys" generate="true" name="系统子项目" />
+	<t_gen_projects id="isy-example" code="example" generate="true" name="示例子项目" />
+	<t_gen_projects id="isy-comm" code="comm" generate="true" name="公共子项目" />
+	<t_gen_projects id="isy-agency" code="agency" generate="true" name="机构子项目" />
+	<t_gen_projects id="isy-books" code="books" generate="true" name="账套子项目" />
+	<t_gen_projects id="isy-subject" code="subject" generate="true" name="科目子项目" />
+	<t_gen_projects id="isy-voucher" code="voucher" generate="true" name="凭证子项目" />
+	<t_gen_projects id="isy-capital" code="capital" generate="true" name="资产子项目" />
+	<t_gen_projects id="isy-checkout" code="checkout" generate="true" name="结账子项目" />
+	<t_gen_projects id="isy-report" code="report" generate="true" name="报表子项目" />
+	<t_gen_projects id="isy-member" code="member" generate="true" name="社员子项目" />
+	<t_gen_projects id="isy-shares" code="shares" generate="true" name="股金子项目" />
+	<t_gen_projects id="isy-cms" code="cms" generate="true" name="内容管理子项目" />
+	<t_gen_projects id="isy-channel" code="channel" generate="true" name="通道子项目" />
+	<t_gen_projects id="isy-act" code="act" generate="true" name="活动子项目" />
+	<t_gen_projects id="isy-fair" code="fair" generate="true" name="集市子项目" />
+	<t_gen_projects id="isy-finance" code="finance" generate="true" name="金融子项目" />
+	<t_gen_projects id="isy-bms" code="bms" generate="true" name="后台子项目" />
+	<t_gen_projects id="isy-web" code="web" generate="true" name="前台子项目" />
+</dataset>

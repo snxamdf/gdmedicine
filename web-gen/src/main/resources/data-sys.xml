@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+	<!-- 模块id值规则：sys + 两位序列号 -->
+	<!-- 模块project_id值规则（支持多项目） ：对应项目id + "," -->
+	<t_gen_modules id="sys01" code="sys" generate="true" name="系统模块" author="YHY" project_id="isy-sys,"/>
+	
+	
+	<!-- 表id值规则：对应模块id + 三位序列号 -->
+	<!-- 表module_id值规则（支持多模块） ：对应模块id + "," -->
+	<!-- 表extend值规则 ：sys(cdm中继承bmain)或tree(cdm中继承btree) -->
+	<t_gen_tables id="sys01001" code="t_sys_area" generate="true" menu="false" name="区域" comments="区域" extend="tree" module_id="sys01,"/>
+	<t_gen_tables id="sys01002" code="t_sys_blacklist" generate="true" menu="false" name="黑名单" comments="黑名单" extend="sys" module_id="sys01,"/>
+	<t_gen_tables id="sys01003" code="t_sys_conf" generate="true" menu="false" name="系统配置" comments="系统配置" extend="sys" module_id="sys01,"/>
+	<t_gen_tables id="sys01004" code="t_sys_dict" generate="true" menu="false" name="字典" comments="字典" extend="sys" module_id="sys01,"/>
+	<t_gen_tables id="sys01005" code="t_sys_log" generate="true" menu="false" name="日志" comments="日志" extend="sys" module_id="sys01,"/>
+	<t_gen_tables id="sys01006" code="t_sys_menu" generate="true" menu="false" name="菜单" comments="菜单" extend="tree" module_id="sys01,"/>
+	<t_gen_tables id="sys01007" code="t_sys_org" generate="true" menu="false" name="机构" comments="机构" extend="tree" module_id="sys01,"/>
+	<t_gen_tables id="sys01008" code="t_sys_post" generate="true" menu="false" name="岗位" comments="岗位" extend="tree" module_id="sys01,"/>
+	<t_gen_tables id="sys01009" code="t_sys_post_menu" generate="true" menu="false" name="岗位菜单" comments="岗位菜单" extend="sys" module_id="sys01,"/>
+	<t_gen_tables id="sys01010" code="t_sys_role_menu" generate="true" menu="false" name="角色菜单" comments="角色菜单" extend="sys" module_id="sys01,"/>
+	<t_gen_tables id="sys01011" code="t_sys_role" generate="true" menu="false" name="角色" comments="角色" extend="sys" module_id="sys01,"/>
+	<t_gen_tables id="sys01012" code="t_sys_user" generate="true" menu="false" name="用户" comments="用户" extend="sys" module_id="sys01,"/>
+	<t_gen_tables id="sys01013" code="t_sys_user_role" generate="true" menu="false" name="用户角色" comments="用户角色" extend="sys" module_id="sys01,"/>
+	<t_gen_tables id="sys01014" code="v_sys_user_blacklist" generate="true" menu="false" name="用户黑名单" comments="用户黑名单" extend="sys" module_id="sys01,"/>
+</dataset>
