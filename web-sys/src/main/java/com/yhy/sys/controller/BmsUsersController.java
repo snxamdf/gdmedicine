@@ -32,6 +32,7 @@ import com.yhy.core.service.BaseService;
 import com.yhy.core.utils.Auths;
 import com.yhy.core.utils.Passwords;
 import com.yhy.core.utils.Servlets;
+import com.yhy.core.utils.Strings;
 import com.yhy.sys.constants.SYS;
 import com.yhy.sys.domain.Role;
 import com.yhy.sys.domain.UserRoles;
@@ -100,7 +101,7 @@ public class BmsUsersController extends BaseController<Users, String> {
 
 	@Override
 	@RequestMapping("/view")
-	public String view(@RequestParam(required = true) String id, Model model) {
+	public String view(String id, Model model) {
 		Users domain = this.getService().findOne(id);
 		model.addAttribute(CTL.DOMAIN, domain);
 		model.addAttribute(CTL.STATE, CTL.STATE_VIEW);
@@ -111,7 +112,10 @@ public class BmsUsersController extends BaseController<Users, String> {
 
 	@Override
 	@RequestMapping("/edit")
-	public String edit(@RequestParam(required = true) String id, Model model) {
+	public String edit(String id, Model model) {
+		if (Strings.isBlank(id)) {
+			id = Auths.getUserDetail().getId();
+		}
 		Users domain = this.getService().findOne(id);
 		model.addAttribute(CTL.DOMAIN, domain);
 		model.addAttribute(CTL.STATE, CTL.STATE_EDIT);
