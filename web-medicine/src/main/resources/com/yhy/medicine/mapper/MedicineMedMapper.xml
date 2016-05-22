@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhy.medicine.mapper.MedicineMedMapper">
+	<resultMap id="baseResultMap" type="com.yhy.medicine.domain.MedicineMed" extends="com.yhy.core.mapper.BaseMapper.sysResultMap">
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="type_id" property="typeId" jdbcType="VARCHAR" />
+		<result column="spec" property="spec" jdbcType="VARCHAR" />
+		<result column="price" property="price" jdbcType="DECIMAL" />
+		<result column="brand" property="brand" jdbcType="VARCHAR" />
+		<result column="vendor" property="vendor" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<select id="findById" parameterType="string" resultMap="baseResultMap">
+		select * from t_medicine_med where id = #{id}
+	</select>
+</mapper>

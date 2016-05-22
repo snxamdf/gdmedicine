@@ -9,7 +9,7 @@ import com.yhy.core.repository.BaseRepository;
 import com.yhy.medicine.domain.MedicineChain;
 
 /**
- * 医药管理表Repository接口.
+ * 链锁店管理表Repository接口.
  * 
  * @author yhy
  * @version 2016-05-22

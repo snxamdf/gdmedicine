@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN" layout:decorator="core/layout/bms.default" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head layout:fragment="head">
+<title th:text="${state}=='add'?'药品管理表：创建':(${state}=='edit'?'药品管理表：修改':'药品管理表：查看')">药品管理表：创建</title>
+<meta name="description" content="" />
+<meta name="author" content="" />
+<meta charset="utf-8" th:substituteby="core/layout/include/bms.head" />
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#eForm").validate();
+	});
+</script>
+</head>
+<body id="main">
+
+	<div class="content" layout:fragment="content">
+		<div class="ui tabular menu">
+			<a class="item" th:href="@{${#ctl.path}+'/medicine/med/list'}" href="bms.medicine.med.list.html">药品列表</a>
+
+			<a class="active item" th:text="${state}=='add'?'药品入库':(${state}=='edit'?'药品修改':'药品查看')"></a>
+		</div>
+		<form id="eForm" th:action="@{${#ctl.path}+'/medicine/med/save'}" th:object="${domain}" action="#" method="post" class="ui error form segment">
+			<div th:if="${#fields.hasErrors('*')}" class="ui error message">
+				<p th:each="error : ${#fields.errors('*')}" th:text="${error}">Validation error</p>
+			</div>
+			<div>
+				<input type="hidden" id="state" name="state" th:value="${state}" />
+				<div></div>
+				<input type="hidden" th:field="*{id}" />
+				<input type="hidden" th:field="*{mstate}" />
+			</div>
+			<div class="required field" th:class="${#fields.hasErrors('name')} ? 'required field error' : 'required field'">
+				<label>名称</label>
+				<div class="ui icon input">
+					<input type="text" class="required" th:field="*{name}" />
+				</div>
+			</div>
+			<div class="required field" th:class="${#fields.hasErrors('spec')} ? 'required field error' : 'required field'">
+				<label>规格</label>
+				<div class="ui icon input">
+					<input type="text" class="required" th:field="*{spec}" />
+				</div>
+			</div>
+			<div class="required field" th:class="${#fields.hasErrors('barcode')} ? 'required field error' : 'required field'">
+				<label>条码/编号(不可编辑)</label>
+				<div class="ui icon input">
+					<input type="text" class="required" th:field="*{barcode}" readonly="readonly" style="color:#F00;"/>
+				</div>
+			</div>
+			<div class="required field" th:class="${#fields.hasErrors('price')} ? 'required field error' : 'required field'">
+				<label>价格</label>
+				<div class="ui icon input">
+					<input type="text" class="required" th:field="*{price}" />
+				</div>
+			</div>
+			<div class="required field" th:class="${#fields.hasErrors('amount')} ? 'required field error' : 'required field'">
+				<label>数量</label>
+				<div class="ui icon input">
+					<input type="text" class="required" th:field="*{amount}" />
+				</div>
+			</div>
+			<div class="required field" th:class="${#fields.hasErrors('brand')} ? 'required field error' : 'required field'">
+				<label>品牌</label>
+				<div class="ui icon input">
+					<input type="text" class="required" th:field="*{brand}" />
+				</div>
+			</div>
+			<div class="required field" th:class="${#fields.hasErrors('vendor')} ? 'required field error' : 'required field'">
+				<label>生产厂商</label>
+				<div class="ui icon input">
+					<input type="text" class="required" th:field="*{vendor}" />
+				</div>
+			</div>
+			<div class="required field" th:class="${#fields.hasErrors('typeId')} ? 'required field error' : 'required field'">
+				<label>药品类型</label>
+				<div class="ui icon input">
+					<select id="typeId" th:field="*{typeId}">
+						<option th:each="mt : ${medTypes}" th:value="${mt.id}" th:text="${mt.name}"></option>
+					</select>
+				</div>
+			</div>
+			<div class="ui buttons">
+				<input class="ui positive button" type="submit" value="保存" th:if="${state} == 'add' or ${state} == 'edit'" />
+				<div class="or" th:if="${state} == 'add' or ${state} == 'edit'"></div>
+				<input class="ui button" type="button" value="返回" onclick="history.go(-1)" />
+			</div>
+		</form>
+	</div>
+	<div class="footer">
+		<div class="ui divider"></div>
+		<div class="item">
+			Copyright &copy; 2009-2015
+			<a href="http://github.com" target="_blank">hongyanyang</a>
+
+			- Powered By
+			<a href="http://github.com" target="_blank">SXM V2.0</a>
+		</div>
+	</div>
+</body>
+</html>

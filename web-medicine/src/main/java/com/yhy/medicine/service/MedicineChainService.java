@@ -17,7 +17,7 @@ import com.yhy.medicine.domain.MedicineChain;
 import com.yhy.medicine.repository.MedicineChainRepository;
 
 /**
- * 医药管理表Service.
+ * 链锁店管理表Service.
  * 
  * @author yhy
  * @version 2016-05-22

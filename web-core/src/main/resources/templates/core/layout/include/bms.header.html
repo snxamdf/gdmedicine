@@ -1,23 +1,77 @@
 
 <div class="ui fixed menu inverted navbar">
-	<a class="item" th:href="@{/}" href="/">
-		<i class="home icon"></i>
-		<span class="ui grid fr">
-			<span class="computer only column">医药连锁后台</span>
-		</span>
-	</a>
-	<a class="item" href="javascript:openYpmSidebar();">
-		<i class="users icon"></i>
-		<span class="ui grid fr">
-			<span class="tablet computer only column">药品管理</span>
-		</span>
-	</a>
-	<a sec:authorize="hasAuthority('bms:role:admin')" class="item" href="javascript:openUsmSidebar();">
-		<i class="users icon"></i>
-		<span class="ui grid fr">
-			<span class="tablet computer only column">用户管理</span>
-		</span>
-	</a>
+	<div class="left menu">
+		<a class="item" th:href="@{/}" href="/">
+			<i class="home icon"></i>
+			<span class="ui grid fr">
+				<span class="computer only column">医药连锁后台</span>
+			</span>
+		</a>
+	</div>
+	<div class="left menu">
+
+		<div class="ui pointing dropdown item user">
+			<span class="ui grid fl">
+				<span class="tablet computer only column">链锁店管理</span>
+			</span>
+			<i class="dropdown icon"></i>
+			<div class="menu">
+				<a class="item" th:href="@{${#ctl.path}+'/medicine/chain/list'}">
+					<i class="edit icon"></i>
+					链锁店列表
+				</a>
+			</div>
+		</div>
+		
+		<div class="ui pointing dropdown item user">
+			<span class="ui grid fl">
+				<span class="tablet computer only column">药品管理</span>
+			</span>
+			<i class="dropdown icon"></i>
+			<div class="menu">
+				<a class="item" th:href="@{${#ctl.path}+'/medicine/med/list'}">
+					<i class="edit icon"></i>
+					药品列表
+				</a>
+				<a class="item" th:href="@{${#ctl.path}+'/medicine/med/sales/list'}">
+					<i class="edit icon"></i>
+					药品销售
+				</a>
+				<a class="item" th:href="@{${#ctl.path}+'/medicine/med/type/list'}">
+					<i class="edit icon"></i>
+					药品类型列表
+				</a>
+			</div>
+		</div>
+
+		<div class="ui pointing dropdown item user">
+			<span class="ui grid fl">
+				<span class="tablet computer only column">用户管理</span>
+			</span>
+			<i class="dropdown icon"></i>
+			<div class="menu">
+				<a class="item" th:href="@{${#ctl.path}+'/sys/users/list'}">
+					<i class="edit icon"></i>
+					用户列表
+				</a>
+			</div>
+		</div>
+
+		<div class="ui pointing dropdown item user">
+			<span class="ui grid fl">
+				<span class="tablet computer only column">权限管理</span>
+			</span>
+			<i class="dropdown icon"></i>
+			<div class="menu">
+				<a class="item" th:href="@{${#ctl.path}+'/sys/role/list'}">
+					<i class="edit icon"></i>
+					权限列表
+				</a>
+			</div>
+		</div>
+
+	</div>
+
 	<div class="right menu">
 		<div class="ui pointing dropdown item user">
 			<span class="ui grid fl">
@@ -25,13 +79,9 @@
 			</span>
 			<i class="dropdown icon"></i>
 			<div class="menu">
-				<a class="item" th:href="@{/}">
+				<a class="item" th:href="@{${#ctl.path}+'/sys/users/information'}">
 					<i class="edit icon"></i>
 					个人信息
-				</a>
-				<a class="item" th:href="@{${#ctl.path}+'/sys/user/to/repasswd'}">
-					<i class="privacy icon"></i>
-					修改密码
 				</a>
 			</div>
 		</div>
@@ -42,33 +92,10 @@
 			</span>
 		</a>
 	</div>
-</div>
-<div id="ypm" class="ui red vertical sidebar menu">
-	<div class="header item">
-		<i class="sitemap icon"></i>
-		药品管理
-	</div>
-	<div class="menu">
-		<a class="item" th:href="@{${#ctl.path}+'/medicine/chain/list'}" > 药品列表</a>
-	</div>
-</div>
-<div id="usm" class="ui red vertical sidebar menu">
-	<div class="header item">
-		<i class="sitemap icon"></i>
-		用户管理
-	</div>
-	<div class="menu">
-		<a class="item" th:href="@{${#ctl.path}+'/sys/users/list'}" > 用户列表 </a>
-	</div>
+
 </div>
 <script type="text/javascript">
-	$(document).ready(function() {
+	$(function() {
 		$('.ui.pointing.dropdown.item.user').dropdown();
 	});
-	function openYpmSidebar() {
-		$('#ypm').sidebar('toggle');
-	}
-	function openUsmSidebar() {
-		$('#usm').sidebar('toggle');
-	}
 </script>

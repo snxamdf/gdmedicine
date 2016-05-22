@@ -7,6 +7,9 @@
 
 	<!-- 表id值规则：对应模块id + 三位序列号 -->
 	<!-- 表module_id值规则（支持多模块） ：对应模块id + "," -->
-	<!-- 表extend值规则 ：sys(cdm中继承bmain)或tree(cdm中继承btree) -->
-	<t_gen_tables id="medicine01001" code="t_medicine_chain" generate="true" menu="true" name="医药管理表" comments="医药管理表" extend="sys" module_id="medicine01," />
+	<!-- 表extend值规则 ：sys(cdm中继承bmain)或tree(cdm中继承btree) 
+	<t_gen_tables id="medicine01001" code="t_medicine_chain" generate="true" menu="true" name="链锁店管理表" comments="链锁店管理表" extend="sys" module_id="medicine01," />
+	<t_gen_tables id="medicine01002" code="t_medicine_med" generate="true" menu="true" name="药品管理表" comments="药品管理表" extend="sys" module_id="medicine01," />
+	<t_gen_tables id="medicine01003" code="t_medicine_med_type" generate="true" menu="true" name="药品类型表" comments="药品类型表" extend="sys" module_id="medicine01," /> -->
+	<t_gen_tables id="medicine01004" code="t_medicine_med_sales" generate="true" menu="true" name="药品销售记录表" comments="药品登记" extend="sys" module_id="medicine01," />
 </dataset>

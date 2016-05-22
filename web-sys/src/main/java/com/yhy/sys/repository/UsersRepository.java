@@ -29,4 +29,5 @@ public interface UsersRepository extends BaseRepository<Users, String> {
 
 	@Query("select distinct r.genre from Users u, UserRoles ur, Role r where u.id=ur.userId and ur.roleId=r.id and u.id = ?1")
 	List<String> findPermissionsById(String userId);
+
 }

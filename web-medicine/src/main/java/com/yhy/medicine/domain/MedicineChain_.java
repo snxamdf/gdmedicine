@@ -11,7 +11,7 @@ import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
 /**
- * 医药管理表元模型类
+ * 链锁店管理表元模型类
  * 
  * @author yhy
  * @version 2016-05-22
@@ -24,7 +24,6 @@ import javax.persistence.metamodel.StaticMetamodel;
 public class MedicineChain_ {
 
 	public static volatile SingularAttribute<MedicineChain, String> id;
-	public static volatile SingularAttribute<MedicineChain, String> name;
 	public static volatile SingularAttribute<MedicineChain, String> creater;
 	public static volatile SingularAttribute<MedicineChain, Date> created;
 	public static volatile SingularAttribute<MedicineChain, String> modifier;
@@ -33,5 +32,6 @@ public class MedicineChain_ {
 	public static volatile SingularAttribute<MedicineChain, Integer> deletion;
 	public static volatile SingularAttribute<MedicineChain, Integer> history;
 	public static volatile SingularAttribute<MedicineChain, String> memo;
+	public static volatile SingularAttribute<MedicineChain, String> name;
 
 }

@@ -15,9 +15,9 @@
 	
 	<div class="content" layout:fragment="content">
 		<div class="ui tabular menu">
-			<a class="item" th:href="@{${#ctl.path}+'/sys/role/list'}" href="bms.role.list.html">医药管理列表</a>
+			<a class="item" th:href="@{${#ctl.path}+'/sys/role/list'}" href="bms.role.list.html">权限列表</a>
 			
-			<a class="active item" th:text="${state}=='add'?'医药管理创建':(${state}=='edit'?'医药管理修改':'医药管理查看')">医药管理创建</a>
+			<a class="active item" th:text="${state}=='add'?'权限创建':(${state}=='edit'?'权限修改':'权限查看')">权限创建</a>
 		</div>
 		<form id="eForm" th:action="@{${#ctl.path}+'/sys/role/save'}" th:object="${domain}" action="#" method="post" class="ui error form segment">
 			<div th:if="${#fields.hasErrors('*')}" class="ui error message">
@@ -56,9 +56,9 @@
 	<div class="footer">
 		<div class="ui divider"></div>
 		<div class="item">
-			Copyright &copy; 2009-2015 <a href="http://github.com/snxamdf" target="_blank">hongyanyang</a>
+			Copyright &copy; 2009-2015 <a href="http://github.com" target="_blank">hongyanyang</a>
 			
-			- Powered By <a href="http://github.com/snxamdf" target="_blank">SXM V2.0</a>
+			- Powered By <a href="http://github.com" target="_blank">SXM V2.0</a>
 		</div>
 	</div>
 </body>

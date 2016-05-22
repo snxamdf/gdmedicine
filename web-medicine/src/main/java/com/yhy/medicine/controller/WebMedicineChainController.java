@@ -21,7 +21,7 @@ import com.yhy.medicine.domain.MedicineChain;
 import com.yhy.medicine.service.MedicineChainService;
 
 /**
- * 医药管理表Controller.
+ * 链锁店管理表Controller.
  * 
  * @author yhy
  * @version 2016-05-22

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN" layout:decorator="core/layout/bms.default" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head layout:fragment="head">
-<title>医药管理表：列表</title>
+<title>链锁店管理表：列表</title>
 <meta name="description" content="" />
 <meta name="author" content="" />
 <meta charset="utf-8" th:substituteby="core/layout/include/bms.head" />
@@ -32,9 +32,9 @@
 	
 	<div class="content" layout:fragment="content">
 		<div class="ui tabular menu">
-			<a class="active item">医药管理表列表</a>
+			<a class="active item">链锁店列表</a>
 			
-			<a class="item" sec:authorize="hasAuthority('medicine:chain:add')" href="bms.medicine.chain.form.html" th:href="@{|javascript:action('add')|}">医药管理表创建</a>
+			<a class="item" sec:authorize="hasAuthority('bms:role:admin')" href="bms.medicine.chain.form.html" th:href="@{|javascript:action('add')|}">链锁店创建</a>
 		</div>
 		<form id="searchForm" class="ui form small message" th:action="@{${#ctl.path}+'/medicine/chain/list'}" action="#" method="post">
 			<div>
@@ -78,8 +78,8 @@
 					<td th:text="${domain.created==null?'':#dates.format(domain.created,'yyyy-MM-dd HH:mm:ss')}">2014-07-16 17:56:12</td>
 					<td th:text="${domain.modified==null?'':#dates.format(domain.modified,'yyyy-MM-dd HH:mm:ss')}">2014-07-18 17:58:16</td>
 					<td>
-						 <a sec:authorize="hasAuthority('medicine:chain:edit')" href="#" th:href="@{|javascript:action('edit','${domain.id}')|}">修改</a>
-						 <a sec:authorize="hasAuthority('medicine:chain:disable')" href="#" th:href="@{|javascript:deletion('${domain.id}')|}">删除</a>
+						 <a sec:authorize="hasAuthority('bms:role:admin')" href="#" th:href="@{|javascript:action('edit','${domain.id}')|}">修改</a>
+						 <a sec:authorize="hasAuthority('bms:role:admin')" href="#" th:href="@{|javascript:deletion('${domain.id}')|}">删除</a>
 					</td>
 				</tr>
 				<tr th:if="${page.content.empty}">
@@ -116,9 +116,9 @@
 	<div class="footer">
 		<div class="ui divider"></div>
 		<div class="item">
-			Copyright &copy; 2009-2015 <a href="http://github.com/snxamdf" target="_blank">hongyanyang</a>
+			Copyright &copy; 2009-2015 <a href="http://github.com" target="_blank">hongyanyang</a>
 			
-			- Powered By <a href="http://github.com/snxamdf" target="_blank">SXM V2.0</a>
+			- Powered By <a href="http://github.com" target="_blank">SXM V2.0</a>
 		</div>
 	</div>
 </body>

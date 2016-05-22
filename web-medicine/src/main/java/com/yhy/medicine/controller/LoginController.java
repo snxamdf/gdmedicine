@@ -53,6 +53,7 @@ public class LoginController {
 		// Encodes.urlEncode(Encodes.urlEncode("验证码错误")));
 		// return CTL.REDIRECT_PREFIX + "/login";
 		// }
+		
 		Result<String> result = Auths.login(username, password, request);
 		if (!result.isSuccess()) {
 			model.addAttribute("usernameErr", "无效的用户名或密码");

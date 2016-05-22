@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
 import com.yhy.core.domain.Sys;
 
 /**
- * 医药管理表Domain
+ * 链锁店管理表Domain
  * 
  * @author yhy
  * @version 2016-05-22

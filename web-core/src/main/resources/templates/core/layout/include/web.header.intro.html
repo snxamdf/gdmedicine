@@ -1,14 +1,16 @@
 <div class="head">
 	<div class="w1000">
 		<div class="logo l">
-			<a href="#" th:href="@{${#ctl.path}+'/'}"><img th:src="@{${#ctl.statics}+'/core/images/logo_logout.png'}" width="290" height="55" /></a>
+			<a href="#" th:href="@{${#ctl.path}+'/'}">
+				<img th:src="@{${#ctl.statics}+'/core/images/logo_logout.png'}" width="290" height="55" />
+			</a>
 		</div>
 		<!--logo_end-->
 		<div class="sign r">
-			<a href="#" th:href="@{${#ctl.path}+'/'}" >首页</a>
-			
-			<a href="#" th:class="${type=='index'?'blue_select':''}"  th:href="@{${#ctl.path+'/cms/intro/index/show'}}">系统介绍</a>
-			
+			<a href="#" th:href="@{${#ctl.path}+'/'}">首页</a>
+
+			<a href="#" th:class="${type=='index'?'blue_select':''}" th:href="@{${#ctl.path+'/cms/intro/index/show'}}">系统介绍</a>
+
 			<a href="#" th:class="${type=='help'?'blue_select':''}" th:href="@{${#ctl.path+'/cms/help/center/show'}}">操作指南</a>
 		</div>
 		<!--sign_end-->

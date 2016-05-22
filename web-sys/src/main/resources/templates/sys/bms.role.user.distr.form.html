@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN" layout:decorator="core/layout/bms.default" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head layout:fragment="head">
+<title th:text="用户权限分配">用户权限分配</title>
+<meta name="description" content="" />
+<meta name="author" content="" />
+<meta charset="utf-8" th:substituteby="core/layout/include/bms.head" />
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#eForm").validate();
+	});
+	function action(type, id) {
+		$("#searchForm").attr("action", ctl.path + "/sys/users/" + type);
+		$("#id").val(id);
+		$("#searchForm").submit();
+		return false;
+	}
+	function deletion(id) {
+		$('#deletionOkBtn').click(function() {
+			action("deletion", id);
+		});
+		$('#deletionDialog').modal('show');
+	}
+	function page(n, s) {
+		$("#pageNo").val(n);
+		$("#pageSize").val(s);
+		$("#searchForm").submit();
+		return false;
+	}
+</script>
+</head>
+<body id="main">
+
+	<div class="content" layout:fragment="content">
+		<div class="ui tabular menu">
+			<a class="item" sec:authorize="hasAuthority('bms:role:admin')" th:href="@{${#ctl.path}+'/sys/users/list'}">用户表列表</a>
+			<a class="item" sec:authorize="hasAuthority('bms:role:admin')" th:href="@{${#ctl.path}+'/sys/users/add'}">用户表创建</a>
+			<a class="active item">权限分配</a>
+		</div>
+		<form id="eForm" th:action="@{${#ctl.path}+'/sys/role/save'}" action="#" method="post" class="ui error form segment">
+
+			<div class="ui buttons">
+				<input class="ui positive button" type="submit" value="保存" />
+			</div>
+		</form>
+	</div>
+	<div class="footer">
+		<div class="ui divider"></div>
+		<div class="item">
+			Copyright &copy; 2009-2015
+			<a href="http://github.com" target="_blank">hongyanyang</a>
+
+			- Powered By
+			<a href="http://github.com" target="_blank">SXM V2.0</a>
+		</div>
+	</div>
+</body>
+</html>

@@ -5,10 +5,13 @@
  */
 package com.yhy.sys.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yhy.core.annotation.BmsEnv;
@@ -51,4 +54,8 @@ public class BmsRoleController extends BaseController<Role, String> {
 		return new Module<Role>(SYS.PROJECT, "role", CTL.BMS, Role.class);
 	}
 
+	@RequestMapping("/user/distr")
+	public String userRoleDist(HttpServletRequest request, Model model) {
+		return "sys/bms.role.user.distr.form";
+	}
 }

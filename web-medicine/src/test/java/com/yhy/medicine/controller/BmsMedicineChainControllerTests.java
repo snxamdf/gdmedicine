@@ -31,7 +31,7 @@ import com.yhy.core.constants.PROFILES;
 import com.yhy.medicine.MedicineApplication;
 
 /**
- * 医药管理表Controller测试.
+ * 链锁店管理表Controller测试.
  * 
  * @author yhy
  * @version 2016-05-22
@@ -56,7 +56,7 @@ public class BmsMedicineChainControllerTests {
 		String url = "http://localhost:" + this.port + CTL.BMS_PATH + "/medicine/chain/list";
 		ResponseEntity<String> entity = new TestRestTemplate().getForEntity(url, String.class);
 		assertEquals(HttpStatus.OK, entity.getStatusCode());
-		assertTrue("Wrong body (title doesn't match):\n" + entity.getBody(), entity.getBody().contains("<title>医药管理表"));
+		assertTrue("Wrong body (title doesn't match):\n" + entity.getBody(), entity.getBody().contains("<title>链锁店管理表"));
 		assertFalse("Wrong body (found layout:fragment):\n" + entity.getBody(), entity.getBody().contains("layout:fragment"));
 	}
 

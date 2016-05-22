@@ -9,7 +9,7 @@ import com.yhy.core.mapper.BaseMapper;
 import com.yhy.medicine.domain.MedicineChain;
 
 /**
- * 医药管理表Mapper接口.
+ * 链锁店管理表Mapper接口.
  * 
  * @author yhy
  * @version 2016-05-22

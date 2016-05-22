@@ -19,7 +19,7 @@ import com.yhy.medicine.MedicineApplication;
 import com.yhy.medicine.domain.MedicineChain;
 
 /**
- * 医药管理表Repository测试.
+ * 链锁店管理表Repository测试.
  * 禁用事务回滚使用@Rollback(false).
  * 
  * @author yhy

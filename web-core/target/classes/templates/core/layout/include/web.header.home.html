@@ -1,8 +1,12 @@
 <header>
 	<div id="header" class="cl">
-		<h1><a href="#" th:href="@{${#ctl.path}+'/'}">WEB-MVN-FRAME</a></h1>
+		<h1>
+			<a href="#" th:href="@{${#ctl.path}+'/'}">WEB-MVN-FRAME</a>
+		</h1>
 		<ul class="op cl">
-			<li class="drop"><span class="icon icon1 fixpng" th:text="${#authentication.name}">张三齐</span><i class="arrow fixpng"></i>
+			<li class="drop">
+				<span class="icon icon1 fixpng" th:text="${#authentication.name}">张三齐</span>
+				<i class="arrow fixpng"></i>
 				<div class="subNav">
 					<p class="icon icon11 fixpng" sec:authorize="hasAuthority('agcy:detail:view')">
 						<a href="#" th:href="@{${#ctl.path}+'/agcy/detail/toBasicInfo'}">合作社信息</a>
@@ -13,9 +17,12 @@
 					<p class="icon icon13 fixpng">
 						<a href="#" th:href="@{${#ctl.path}+'/repasswd'}">修改密码</a>
 					</p>
-				</div></li>
+				</div>
+			</li>
 			<li class="drop" sec:authorize="hasAnyAuthority('vchr:word:edit','web:role:admin','subj:subject:edit','subj:balance:edit')">
-				< <span class="icon icon2 fixpng">系统设置</span><i class="arrow fixpng"></i>
+				<
+				<span class="icon icon2 fixpng">系统设置</span>
+				<i class="arrow fixpng"></i>
 				<div class="subNav">
 					<p class="icon icon21 fixpng">
 						<a href="#" th:href="@{${#ctl.path} +'/vchr/word/findAll'}" sec:authorize="hasAuthority('vchr:word:edit')">财务设置</a>
@@ -27,7 +34,11 @@
 					</p>
 				</div>
 			</li>
-			<li><span class="icon icon3 fixpng"><a href="#" th:href="@{${#ctl.path}+'/logout'}">退出</a></span></li>
+			<li>
+				<span class="icon icon3 fixpng">
+					<a href="#" th:href="@{${#ctl.path}+'/logout'}">退出</a>
+				</span>
+			</li>
 		</ul>
 	</div>
 </header>

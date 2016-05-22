@@ -32,9 +32,9 @@
 	
 	<div class="content" layout:fragment="content">
 		<div class="ui tabular menu">
-			<a class="active item">医药管理列表</a>
+			<a class="active item">权限列表</a>
 			
-			<a class="item" sec:authorize="hasAuthority('sys:role:add')" href="bms.role.form.html" th:href="@{|javascript:action('add')|}">医药管理创建</a>
+			<a class="item" sec:authorize="hasAuthority('bms:role:admin')" href="bms.role.form.html" th:href="@{|javascript:action('add')|}">权限创建</a>
 		</div>
 		<form id="searchForm" class="ui form small message" th:action="@{${#ctl.path}+'/sys/role/list'}" action="#" method="post">
 			<div>
@@ -120,9 +120,9 @@
 	<div class="footer">
 		<div class="ui divider"></div>
 		<div class="item">
-			Copyright &copy; 2009-2015 <a href="http://github.com/snxamdf" target="_blank">hongyanyang</a>
+			Copyright &copy; 2009-2015 <a href="http://github.com" target="_blank">hongyanyang</a>
 			
-			- Powered By <a href="http://github.com/snxamdf" target="_blank">SXM V2.0</a>
+			- Powered By <a href="http://github.com" target="_blank">SXM V2.0</a>
 		</div>
 	</div>
 </body>
