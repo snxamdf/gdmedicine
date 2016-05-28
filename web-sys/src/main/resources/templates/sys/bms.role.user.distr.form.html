@@ -7,8 +7,41 @@
 <meta name="author" content="" />
 <meta charset="utf-8" th:substituteby="core/layout/include/bms.head" />
 <script type="text/javascript">
+	/*<![CDATA[*/
 	$(document).ready(function() {
 		$("#eForm").validate();
+		$("#user").change(function() {
+			var id = $(this).val();
+			$("input[name='roles']").each(function(){
+				$(this).prop("checked",false);
+			});
+			if (id != "-1") {
+				var url = "/sys/role/user/get";
+				$.get(url, {
+					uid : id
+				}, function(result) {
+					var data = result.data;
+					for (var i = 0; i < data.length; i++) {
+						var role = data[i];
+						var role = $("#" + role.roleId);
+						role.prop("checked",true);
+					}
+				});
+			}
+		});
+		
+		$("#saveBtn").click(function(){
+			$("#eForm").ajaxSubmit({
+				success:function(result){
+					console.log(result);
+					if(result.success){
+						alert("分配成功");
+					}else{
+						alert(result.data);
+					}
+				}
+			});
+		});
 	});
 	function action(type, id) {
 		$("#searchForm").attr("action", ctl.path + "/sys/users/" + type);
@@ -28,6 +61,7 @@
 		$("#searchForm").submit();
 		return false;
 	}
+	/*]]>*/
 </script>
 </head>
 <body id="main">
@@ -38,10 +72,26 @@
 			<a class="item" sec:authorize="hasAuthority('bms:role:admin')" th:href="@{${#ctl.path}+'/sys/users/add'}">用户表创建</a>
 			<a class="active item">权限分配</a>
 		</div>
-		<form id="eForm" th:action="@{${#ctl.path}+'/sys/role/save'}" action="#" method="post" class="ui error form segment">
-
+		<form id="eForm" th:action="@{${#ctl.path}+'/sys/role/user/distr/save'}" action="#" method="post" class="ui error form segment">
+			<div class="required field">
+				<label>选择用户</label>
+				<div class="ui icon input">
+					<select id="user" name="user">
+						<option value="-1">-请选择-</option>
+						<option th:each="us : ${users}" th:value="${us.id}" th:text="${us.uname}"></option>
+					</select>
+				</div>
+			</div>
+			<div>
+				<b>选择权限：</b>
+				<label th:each="rs : ${roles}" th:for="${rs.id}">
+					<input th:id="${rs.id}" name="roles" type="checkbox" th:value="${rs.id}" />
+					<b th:text="${rs.name}"></b>&nbsp;&nbsp;
+				</label>
+			</div>
 			<div class="ui buttons">
-				<input class="ui positive button" type="submit" value="保存" />
+				<br/>
+				<input id="saveBtn" class="ui positive button" type="button" value="保存" />
 			</div>
 		</form>
 	</div>

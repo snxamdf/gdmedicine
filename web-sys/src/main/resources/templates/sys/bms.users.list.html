@@ -46,9 +46,9 @@
 			</div>
 			<div class="fields">
 				<div class="inline field">
-					<label>标识</label>
+					<label>登录名</label>
 					
-					<input type="text" id="search_EQ_id" name="search_EQ_id" th:value="${search_EQ_id}" />
+					<input type="text" id="search_LK_name" name="search_LK_name" th:value="${search_LK_name}" />
 				</div>
 				<div class="field">
 					<input class="ui small positive button" type="submit" value="查询" />
@@ -82,8 +82,8 @@
 					<td th:text="${domain.created==null?'':#dates.format(domain.created,'yyyy-MM-dd HH:mm:ss')}">2014-07-16 17:56:12</td>
 					<td th:text="${domain.modified==null?'':#dates.format(domain.modified,'yyyy-MM-dd HH:mm:ss')}">2014-07-18 17:58:16</td>
 					<td>
-						 <a sec:authorize="hasAuthority('bms:role:admin')" href="#" th:href="@{|javascript:action('edit','${domain.id}')|}">修改</a>
-						 <a sec:authorize="hasAuthority('bms:role:admin')" href="#" th:href="@{|javascript:deletion('${domain.id}')|}">删除</a>
+						 <a sec:authorize="hasAuthority('sys:user:edit')" href="#" th:href="@{|javascript:action('edit','${domain.id}')|}">修改</a>
+						 <a sec:authorize="hasAuthority('sys:user:disable')" href="#" th:href="@{|javascript:deletion('${domain.id}')|}">删除</a>
 					</td>
 				</tr>
 				<tr th:if="${page.content.empty}">

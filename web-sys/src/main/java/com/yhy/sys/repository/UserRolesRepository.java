@@ -7,6 +7,9 @@ package com.yhy.sys.repository;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import com.yhy.core.domain.Sys;
@@ -23,7 +26,12 @@ import com.yhy.sys.domain.UserRoles;
  * @updated by yhy
  * @updated at 2016-05-22
  */
+@Transactional
 public interface UserRolesRepository extends BaseRepository<UserRoles, String> {
 	@Query("select r from UserRoles r where r.userId = ?1 and r.deletion = " + Sys.DELETION_NO)
 	List<UserRoles> findByUserId(String userId);
+
+	@Modifying
+	@Query("delete UserRoles ur where ur.userId = ?1")
+	int deleteByUserId(String userId);
 }

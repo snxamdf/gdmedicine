@@ -35,7 +35,7 @@
 		<div class="ui tabular menu">
 			<a class="active item">药品列表</a>
 
-			<a class="item" sec:authorize="hasAuthority('bms:role:admin')" href="bms.medicine.med.form.html" th:href="@{|javascript:action('add')|}">药品入库</a>
+			<a class="item" sec:authorize="hasAuthority('medicine:chain:view')" href="bms.medicine.med.form.html" th:href="@{|javascript:action('add')|}">药品入库</a>
 		</div>
 		<form id="searchForm" class="ui form small message" th:action="@{${#ctl.path}+'/medicine/med/list'}" action="#" method="post">
 			<div>
@@ -97,8 +97,8 @@
 					<td th:text="${domain.created==null?'':#dates.format(domain.created,'yyyy-MM-dd HH:mm:ss')}">2014-07-16 17:56:12</td>
 					<td th:text="${domain.modified==null?'':#dates.format(domain.modified,'yyyy-MM-dd HH:mm:ss')}">2014-07-18 17:58:16</td>
 					<td>
-						<a sec:authorize="hasAuthority('bms:role:admin')" href="#" th:href="@{|javascript:action('edit','${domain.id}')|}">修改</a>
-						<a sec:authorize="hasAuthority('bms:role:admin')" href="#" th:href="@{|javascript:deletion('${domain.id}')|}">删除</a>
+						<a sec:authorize="hasAuthority('medicine:chain:edit')" href="#" th:href="@{|javascript:action('edit','${domain.id}')|}">修改</a>
+						<a sec:authorize="hasAuthority('medicine:chain:disable')" href="#" th:href="@{|javascript:deletion('${domain.id}')|}">删除</a>
 					</td>
 				</tr>
 				<tr th:if="${page.content.empty}">

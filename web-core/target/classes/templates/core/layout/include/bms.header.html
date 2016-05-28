@@ -10,7 +10,7 @@
 	</div>
 	<div class="left menu">
 
-		<div class="ui pointing dropdown item user">
+		<div class="ui pointing dropdown item user" sec:authorize="hasAuthority('medicine:chain:view')">
 			<span class="ui grid fl">
 				<span class="tablet computer only column">链锁店管理</span>
 			</span>
@@ -23,7 +23,7 @@
 			</div>
 		</div>
 		
-		<div class="ui pointing dropdown item user">
+		<div class="ui pointing dropdown item user" sec:authorize="hasAuthority('medicine:med:view')">
 			<span class="ui grid fl">
 				<span class="tablet computer only column">药品管理</span>
 			</span>
@@ -44,7 +44,7 @@
 			</div>
 		</div>
 
-		<div class="ui pointing dropdown item user">
+		<div class="ui pointing dropdown item user" sec:authorize="hasAuthority('bms:role:admin')">
 			<span class="ui grid fl">
 				<span class="tablet computer only column">用户管理</span>
 			</span>
@@ -57,7 +57,7 @@
 			</div>
 		</div>
 
-		<div class="ui pointing dropdown item user">
+		<div class="ui pointing dropdown item user" sec:authorize="hasAuthority('sys:role:view')">
 			<span class="ui grid fl">
 				<span class="tablet computer only column">权限管理</span>
 			</span>
