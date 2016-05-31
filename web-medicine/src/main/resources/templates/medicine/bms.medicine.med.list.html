@@ -8,6 +8,8 @@
 <meta charset="utf-8" th:substituteby="core/layout/include/bms.head" />
 <script type="text/javascript">
 	$(document).ready(function() {
+		$("#search_GE_created").datepicker();
+		$("#search_LE_created").datepicker();
 	});
 	function action(type, id) {
 		$("#searchForm").attr("action", ctl.path + "/medicine/med/" + type);
@@ -56,6 +58,13 @@
 				<div class="field">
 					<div th:include="core/form/bms.combo" th:with="id='search_EQ_chainId',val=${search_EQ_chainId},url=@{${#ctl.path}+'/medicine/chain/getchains'}"></div>
 				</div>
+				<div class="inline field">
+					<label>添加时间</label>
+
+					<input type="text" id="search_GE_created" name="search_GE_created" th:value="${search_GE_created}" />
+					--
+					<input type="text" id="search_LE_created" name="search_LE_created" th:value="${search_LE_created}" />
+				</div>
 				<div class="field">
 					<input class="ui small positive button" type="submit" value="查询" />
 				</div>
@@ -81,7 +90,7 @@
 					<th>品牌</th>
 					<th>类型</th>
 					<th>生产厂商</th>
-					<th>创建时间</th>
+					<th>添加时间</th>
 					<th>更新时间</th>
 					<th>操作</th>
 				</tr>

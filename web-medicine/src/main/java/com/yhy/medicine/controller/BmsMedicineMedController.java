@@ -8,11 +8,15 @@ package com.yhy.medicine.controller;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,11 +30,17 @@ import com.yhy.core.annotation.BmsEnv;
 import com.yhy.core.constants.CTL;
 import com.yhy.core.constants.SYMBOL;
 import com.yhy.core.controller.BaseController;
+import com.yhy.core.domain.Sys;
 import com.yhy.core.dto.Module;
 import com.yhy.core.search.Filter;
 import com.yhy.core.search.Filter.Operator;
 import com.yhy.core.service.BaseService;
+import com.yhy.core.utils.Dates;
+import com.yhy.core.utils.Pageables;
+import com.yhy.core.utils.Pages;
 import com.yhy.core.utils.Servlets;
+import com.yhy.core.utils.Sorts;
+import com.yhy.core.utils.Specifications;
 import com.yhy.core.utils.Strings;
 import com.yhy.medicine.constants.MEDICINE;
 import com.yhy.medicine.domain.MedicineMed;
@@ -72,6 +82,31 @@ public class BmsMedicineMedController extends BaseController<MedicineMed, String
 	@Override
 	public Module<MedicineMed> getModule() {
 		return new Module<MedicineMed>(MEDICINE.PROJECT, "medicine.med", CTL.BMS, MedicineMed.class);
+	}
+
+	@RequestMapping("/list")
+	public String list(HttpServletRequest request, HttpServletResponse response, Model model) {
+		Map<String, Object> params = Servlets.getParametersStartingWith(request, CTL.SEARCH_PREFIX);
+		if (!params.containsKey(Filter.DELETION)) { // 如果没有指定查询逻辑删除条件：默认查询未逻辑删除的数据
+			params.put(Filter.DELETION, String.valueOf(Sys.DELETION_NO));
+		}
+
+		Object GE_publishTime = params.get("GE_created");
+		Object LE_publishTime = params.get("LE_created");
+		if (GE_publishTime != null && !"".equals(GE_publishTime)) {
+			GE_publishTime = GE_publishTime + " 00:00:00";
+			params.put("GE_created", Dates.parse(GE_publishTime.toString()));
+		}
+		if (LE_publishTime != null && !"".equals(LE_publishTime)) {
+			LE_publishTime = LE_publishTime + " 23:59:59";
+			params.put("LE_created", Dates.parse(LE_publishTime.toString()));
+		}
+		Sort sort = Sorts.byMap(params);
+		Pageable pageable = Pageables.Build(request, response, sort);
+		Page<MedicineMed> page = this.getService().findAll(Specifications.byMap(this.getModule().getEntityClass(), params), pageable);
+		model.addAttribute(CTL.PAGE, page);
+		model.addAttribute(CTL.PAGINATION, Pages.toHtml(page));
+		return this.getModule().getTmplName() + SYMBOL.DOT + CTL.LIST;
 	}
 
 	@Override
