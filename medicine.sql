@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
-Source Server Version : 50626
+Source Server         : 本地
+Source Server Version : 50620
 Source Host           : localhost:3306
 Source Database       : medicine
 
 Target Server Type    : MYSQL
-Target Server Version : 50626
+Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2016-05-28 13:17:50
+Date: 2016-05-31 11:35:48
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -129,16 +129,17 @@ CREATE TABLE `t_medicine_med` (
   `mstate` varchar(50) DEFAULT '0' COMMENT '状态',
   `amount` int(11) DEFAULT NULL COMMENT '数量',
   `barcode` varchar(255) DEFAULT NULL COMMENT '条形码编码',
+  `chain_id` varchar(50) DEFAULT NULL COMMENT '链锁店ID',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_medicine_med
 -- ----------------------------
-INSERT INTO `t_medicine_med` VALUES ('977db33d-3a0a-4a03-ba02-b27c8e2453f9', '感康', '72c29994-a075-11e4-a96d-005056a8', '2016-05-22 11:50:45', '72c29994-a075-11e4-a96d-005056a8', '2016-05-22 15:20:17', '0', '0', '0', null, '89157944-7891-4ec3-ae40-5ef915a87025', '10m', '12.50', '哈药', '哈药哈药哈药', '入库', '17', '20040');
-INSERT INTO `t_medicine_med` VALUES ('a716bce8-fd5e-4a6e-a63c-844c93b4252a', '药品1', 'anonymousUser', '2016-05-21 11:53:16', '72c29994-a075-11e4-a96d-005056a8', '2016-05-22 15:56:41', '0', '0', '0', null, '89157944-7891-4ec3-ae40-5ef915a87025', '10m', '43.00', '哈药1', '哈药哈药哈药', '入库', '40', '20041');
-INSERT INTO `t_medicine_med` VALUES ('bd1ca7df-941d-4827-ab6c-3906c38cdb9c', '中西药', '72c29994-a075-11e4-a96d-005056a8', '2016-05-22 12:46:47', '72c29994-a075-11e4-a96d-005056a8', '2016-05-22 12:46:47', '0', '0', '0', null, '8106a58c-1c0a-4764-9f52-a13ce70090dc', '10m', '12.50', '哈药', '哈药哈药哈药', '入库', '12', '20042');
-INSERT INTO `t_medicine_med` VALUES ('e12b0eaa-206b-4d0c-9552-e6a57a1fbd5f', '中西药', '72c29994-a075-11e4-a96d-005056a8', '2016-05-22 12:45:58', '72c29994-a075-11e4-a96d-005056a8', '2016-05-22 12:45:58', '0', '0', '0', null, '8106a58c-1c0a-4764-9f52-a13ce70090dc', '10m', '12.50', '哈药', '哈药哈药哈药', '入库', '54', '20043');
+INSERT INTO `t_medicine_med` VALUES ('977db33d-3a0a-4a03-ba02-b27c8e2453f9', '感康', '72c29994-a075-11e4-a96d-005056a8', '2016-05-22 11:50:45', '72c29994-a075-11e4-a96d-005056a8', '2016-05-22 15:20:17', '0', '0', '0', null, '89157944-7891-4ec3-ae40-5ef915a87025', '10m', '12.50', '哈药', '哈药哈药哈药', '入库', '17', '20040', '157787ba-bdf3-4b78-951e-1ff673af44d2');
+INSERT INTO `t_medicine_med` VALUES ('a716bce8-fd5e-4a6e-a63c-844c93b4252a', '药品1', 'anonymousUser', '2016-05-21 11:53:16', '72c29994-a075-11e4-a96d-005056a8', '2016-05-22 15:56:41', '0', '0', '0', null, '89157944-7891-4ec3-ae40-5ef915a87025', '10m', '43.00', '哈药1', '哈药哈药哈药', '入库', '40', '20041', '157787ba-bdf3-4b78-951e-1ff673af44d2');
+INSERT INTO `t_medicine_med` VALUES ('bd1ca7df-941d-4827-ab6c-3906c38cdb9c', '中西药', '72c29994-a075-11e4-a96d-005056a8', '2016-05-22 12:46:47', '72c29994-a075-11e4-a96d-005056a8', '2016-05-31 11:15:20', '0', '0', '0', null, '8106a58c-1c0a-4764-9f52-a13ce70090dc', '10m', '12.50', '哈药', '哈药哈药哈药', '入库', '11', '20042', '665648ed-6fa1-49e0-885c-8a80a50c4202');
+INSERT INTO `t_medicine_med` VALUES ('e12b0eaa-206b-4d0c-9552-e6a57a1fbd5f', '中西药', '72c29994-a075-11e4-a96d-005056a8', '2016-05-22 12:45:58', '72c29994-a075-11e4-a96d-005056a8', '2016-05-22 12:45:58', '0', '0', '0', null, '8106a58c-1c0a-4764-9f52-a13ce70090dc', '10m', '12.50', '哈药', '哈药哈药哈药', '入库', '54', '20043', '665648ed-6fa1-49e0-885c-8a80a50c4202');
 
 -- ----------------------------
 -- Table structure for t_medicine_med_sales
@@ -165,6 +166,7 @@ CREATE TABLE `t_medicine_med_sales` (
 -- ----------------------------
 INSERT INTO `t_medicine_med_sales` VALUES ('2007fa97-07ad-46f5-a87e-47b493b7f0f4', '72c29994-a075-11e4-a96d-005056a8', '2016-05-22 15:56:41', '72c29994-a075-11e4-a96d-005056a8', '2016-05-22 15:56:41', '0', '0', '0', null, 'a716bce8-fd5e-4a6e-a63c-844c93b4252a', '1', '20041');
 INSERT INTO `t_medicine_med_sales` VALUES ('31e1bf69-1fc0-4577-9720-f2f79862fa8a', '72c29994-a075-11e4-a96d-005056a8', '2016-05-22 15:20:32', '72c29994-a075-11e4-a96d-005056a8', '2016-05-22 15:20:32', '0', '0', '0', null, 'a716bce8-fd5e-4a6e-a63c-844c93b4252a', '1', '20041');
+INSERT INTO `t_medicine_med_sales` VALUES ('98f26e1f-c267-42b5-aba2-b580146e5c82', '72c29994-a075-11e4-a96d-005056a8', '2016-05-31 11:15:20', '72c29994-a075-11e4-a96d-005056a8', '2016-05-31 11:15:20', '0', '0', '0', null, 'bd1ca7df-941d-4827-ab6c-3906c38cdb9c', '1', '20042');
 INSERT INTO `t_medicine_med_sales` VALUES ('ff14871d-6b94-4215-9766-b57650877494', '72c29994-a075-11e4-a96d-005056a8', '2016-05-22 15:19:57', '72c29994-a075-11e4-a96d-005056a8', '2016-05-22 15:19:57', '0', '0', '0', null, '977db33d-3a0a-4a03-ba02-b27c8e2453f9', '1', '20040');
 
 -- ----------------------------
