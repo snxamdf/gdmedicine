@@ -42,9 +42,14 @@ public class MedicineMed extends Sys<String> {
 	private String mstate;
 	private String barcode;
 	private Integer amount;
-	
+	private String chainId;
+
 	@OneToOne(targetEntity = MedicineMedType.class, cascade = { CascadeType.REFRESH })
 	@JoinColumn(name = "typeId", referencedColumnName = "id", insertable = false, updatable = false)
 	private MedicineMedType type;
+	
+	@OneToOne(targetEntity = MedicineChain.class, cascade = { CascadeType.REFRESH })
+	@JoinColumn(name = "chainId", referencedColumnName = "id", insertable = false, updatable = false)
+	private MedicineChain chain;
 
 }

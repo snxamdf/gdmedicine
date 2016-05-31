@@ -40,7 +40,9 @@ public class MedicineMed_ {
 	public static volatile SingularAttribute<MedicineMed, String> vendor;
 	public static volatile SingularAttribute<MedicineMed, String> mstate;
 	public static volatile SingularAttribute<MedicineMed, String> barcode;
+	public static volatile SingularAttribute<MedicineMed, String> chainId;
 	public static volatile SingularAttribute<MedicineMed, Integer> amount;
 	public static volatile SingularAttribute<MedicineMed, MedicineMedType> type;
+	public static volatile SingularAttribute<MedicineMed, MedicineChain> chain;
 
 }

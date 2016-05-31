@@ -47,9 +47,14 @@
 			</div>
 			<div class="fields">
 				<div class="inline field">
-					<label>名称</label>
-
+					<label>药品名称</label>
 					<input type="text" id="search_LK_name" name="search_LK_name" th:value="${search_LK_name}" />
+				</div>
+				<div class="field">
+					<label class="pt9">药店名称</label>
+				</div>
+				<div class="field">
+					<div th:include="core/form/bms.combo" th:with="id='search_EQ_chainId',val=${search_EQ_chainId},url=@{${#ctl.path}+'/medicine/chain/getchains'}"></div>
 				</div>
 				<div class="field">
 					<input class="ui small positive button" type="submit" value="查询" />
@@ -66,7 +71,8 @@
 			<thead>
 				<tr>
 					<th class="w300">标识</th>
-					<th>名称</th>
+					<th>药品名称</th>
+					<th>药店名称</th>
 					<th>条码/编号</th>
 					<th>状态</th>
 					<th>规格</th>
@@ -86,6 +92,7 @@
 						<a href="bms.medicine.med.form.html" th:text="${domain.id}" th:href="@{|javascript:action('view','${domain.id}')|}">1</a>
 					</td>
 					<td th:text="${domain.name}">1</td>
+					<td th:text="${domain.chain.name}">1</td>
 					<td th:text="${domain.barcode}">1</td>
 					<td th:text="${domain.mstate}"></td>
 					<td th:text="${domain.spec}">1</td>

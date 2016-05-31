@@ -27,11 +27,14 @@ import com.yhy.core.constants.CTL;
 import com.yhy.core.constants.SYMBOL;
 import com.yhy.core.controller.BaseController;
 import com.yhy.core.dto.Module;
+import com.yhy.core.search.Filter;
+import com.yhy.core.search.Filter.Operator;
 import com.yhy.core.service.BaseService;
 import com.yhy.core.utils.Servlets;
 import com.yhy.core.utils.Strings;
 import com.yhy.medicine.constants.MEDICINE;
 import com.yhy.medicine.domain.MedicineMed;
+import com.yhy.medicine.service.MedicineChainService;
 import com.yhy.medicine.service.MedicineMedService;
 import com.yhy.medicine.service.MedicineMedTypeService;
 
@@ -59,6 +62,9 @@ public class BmsMedicineMedController extends BaseController<MedicineMed, String
 	@Autowired
 	private MedicineMedTypeService medicineMedTypeService;
 
+	@Autowired
+	private MedicineChainService medicineChainService;
+
 	public BaseService<MedicineMed, String> getService() {
 		return medicineMedService;
 	}
@@ -73,7 +79,8 @@ public class BmsMedicineMedController extends BaseController<MedicineMed, String
 	public String add(MedicineMed domain, HttpServletRequest request, Model model) {
 		model.addAttribute(CTL.DOMAIN, domain);
 		model.addAttribute(CTL.STATE, CTL.STATE_ADD);
-		model.addAttribute("medTypes", medicineMedTypeService.findAll());
+		model.addAttribute("medTypes", medicineMedTypeService.findAll(new Filter("deletion", Operator.EQ, "0")));
+		model.addAttribute("chains", medicineChainService.findAll(new Filter("deletion", Operator.EQ, "0")));
 		int s = (int) (Math.random() * 1000000);
 		domain.setBarcode(String.valueOf(s));
 		return this.getModule().getTmplName() + SYMBOL.DOT + CTL.FORM;
@@ -86,6 +93,7 @@ public class BmsMedicineMedController extends BaseController<MedicineMed, String
 		model.addAttribute(CTL.DOMAIN, domain);
 		model.addAttribute(CTL.STATE, CTL.STATE_VIEW);
 		model.addAttribute("medTypes", medicineMedTypeService.findAll());
+		model.addAttribute("chains", medicineChainService.findAll(new Filter("deletion", Operator.EQ, "0")));
 		return this.getModule().getTmplName() + SYMBOL.DOT + CTL.FORM;
 	}
 
@@ -96,6 +104,7 @@ public class BmsMedicineMedController extends BaseController<MedicineMed, String
 		model.addAttribute(CTL.DOMAIN, domain);
 		model.addAttribute(CTL.STATE, CTL.STATE_EDIT);
 		model.addAttribute("medTypes", medicineMedTypeService.findAll());
+		model.addAttribute("chains", medicineChainService.findAll(new Filter("deletion", Operator.EQ, "0")));
 		return this.getModule().getTmplName() + SYMBOL.DOT + CTL.FORM;
 	}
 

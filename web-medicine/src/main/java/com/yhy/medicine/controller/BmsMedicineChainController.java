@@ -5,16 +5,21 @@
  */
 package com.yhy.medicine.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yhy.core.annotation.BmsEnv;
 import com.yhy.core.constants.CTL;
 import com.yhy.core.controller.BaseController;
 import com.yhy.core.dto.Module;
+import com.yhy.core.search.Filter;
+import com.yhy.core.search.Filter.Operator;
 import com.yhy.core.service.BaseService;
 import com.yhy.medicine.constants.MEDICINE;
 import com.yhy.medicine.domain.MedicineChain;
@@ -51,4 +56,10 @@ public class BmsMedicineChainController extends BaseController<MedicineChain, St
 		return new Module<MedicineChain>(MEDICINE.PROJECT, "medicine.chain", CTL.BMS, MedicineChain.class);
 	}
 
+	@ResponseBody
+	@RequestMapping("/getchains")
+	public List<MedicineChain> getChains(){
+		List<MedicineChain> list= medicineChainService.findAll(new Filter("deletion", Operator.EQ, "0"));
+		return list;
+	}
 }

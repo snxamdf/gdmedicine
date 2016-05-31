@@ -36,6 +36,14 @@
 					<input type="text" class="required" th:field="*{name}" />
 				</div>
 			</div>
+			<div class="required field" th:class="${#fields.hasErrors('typeId')} ? 'required field error' : 'required field'">
+				<label>所属药店</label>
+				<div class="ui icon input">
+					<select id="chainId" th:field="*{chainId}">
+						<option th:each="cs : ${chains}" th:value="${cs.id}" th:text="${cs.name}"></option>
+					</select>
+				</div>
+			</div>
 			<div class="required field" th:class="${#fields.hasErrors('spec')} ? 'required field error' : 'required field'">
 				<label>规格</label>
 				<div class="ui icon input">
